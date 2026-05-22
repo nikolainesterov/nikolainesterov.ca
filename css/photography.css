@@ -1,0 +1,266 @@
+/* ═══════════════════════════════════════════════════════════
+   PHOTOGRAPHY PAGE CSS
+   Category navigation, masonry gallery, lightbox
+═══════════════════════════════════════════════════════════ */
+
+/* ─── CATEGORY NAV ──────────────────────────────────────── */
+.photo-nav {
+  position: sticky; top: var(--nav-h); z-index: 100;
+  background: rgba(13,13,13,0.97);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.photo-nav-inner {
+  display: flex; align-items: center; gap: 0;
+  max-width: 1440px; margin: 0 auto; padding: 0 4rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.photo-nav-inner::-webkit-scrollbar { display: none; }
+.cat-btn {
+  flex-shrink: 0;
+  padding: 1.35rem 1.75rem;
+  font-family: var(--sans);
+  font-size: 0.71rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--text-dim);
+  background: transparent;
+  border: none; border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.3s, border-color 0.3s;
+  white-space: nowrap;
+}
+.cat-btn:hover { color: var(--text-muted); }
+.cat-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+.cat-count {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  background: var(--surface);
+  padding: 0.1em 0.45em;
+}
+.cat-btn.active .cat-count { color: var(--gold); }
+
+/* ─── GALLERY PANELS ────────────────────────────────────── */
+.gallery-panel {
+  display: none;
+  padding: 3rem 4rem 5rem;
+  max-width: 1440px; margin: 0 auto;
+}
+.gallery-panel.active { display: block; }
+
+.gallery-panel-intro {
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+}
+.gallery-panel-title {
+  font-family: var(--serif);
+  font-size: 2rem; font-weight: 300;
+  color: var(--text); margin-bottom: 0.5rem;
+}
+.gallery-panel-title em { font-style: italic; color: var(--gold); }
+.gallery-panel-desc {
+  font-size: 0.85rem; color: var(--text-dim); line-height: 1.7;
+}
+
+/* ─── MASONRY ───────────────────────────────────────────── */
+/*
+  CSS columns masonry — the browser places items naturally.
+  Images are width:100%, height:auto so NO cropping, aspect ratios preserved.
+  break-inside:avoid keeps each item together.
+*/
+.masonry {
+  columns: 3;
+  column-gap: 10px;
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: var(--surface);
+}
+.masonry-item img {
+  width: 100%;
+  height: auto;      /* ← key: preserves aspect ratio, no cropping */
+  display: block;
+  transition: transform 0.55s var(--ease), filter 0.4s;
+  /* While loading, maintain a minimum height so layout doesn't collapse */
+  min-height: 100px;
+}
+/* Fade in images as they load */
+.masonry-item img.loaded {
+  animation: imgFadeIn 0.5s ease forwards;
+}
+@keyframes imgFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.masonry-item:hover img {
+  transform: scale(1.035);
+  filter: brightness(0.6);
+}
+
+.masonry-overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 1.4rem 1.2rem;
+  background: linear-gradient(0deg, rgba(0,0,0,0.72) 0%, transparent 50%);
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 0.35s, transform 0.35s var(--ease);
+  pointer-events: none;
+}
+.masonry-item:hover .masonry-overlay {
+  opacity: 1; transform: translateY(0);
+}
+.masonry-title {
+  font-family: var(--serif);
+  font-size: 1rem; color: #fff;
+  line-height: 1.25; margin-bottom: 0.2rem;
+}
+.masonry-sub {
+  font-size: 0.67rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.masonry-zoom {
+  position: absolute; top: 0.9rem; right: 0.9rem;
+  width: 30px; height: 30px;
+  border: 1px solid rgba(255,255,255,0.25);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.3s;
+  pointer-events: none;
+}
+.masonry-zoom svg { width: 13px; stroke: #fff; fill: none; stroke-width: 1.5; }
+.masonry-item:hover .masonry-zoom { opacity: 1; }
+
+/* Placeholder block (shows before image loads or when src empty) */
+.masonry-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--surface);
+  display: flex; align-items: center; justify-content: center;
+}
+.masonry-placeholder svg { opacity: 0.08; width: 40px; }
+
+/* Loading skeleton pulse */
+.masonry-item.loading img {
+  opacity: 0;
+}
+
+/* ─── EMPTY STATE ────────────────────────────────────────── */
+.gallery-empty {
+  text-align: center; padding: 5rem 2rem;
+  color: var(--text-dim);
+}
+.gallery-empty svg { width: 48px; stroke: var(--text-dim); fill: none; stroke-width: 1; margin: 0 auto 1.25rem; }
+.gallery-empty p { font-family: var(--serif); font-size: 1.1rem; }
+
+/* ─── LIGHTBOX ──────────────────────────────────────────── */
+.lightbox {
+  position: fixed; inset: 0; z-index: 900;
+  background: rgba(6,6,6,0.97);
+  display: flex;
+  flex-direction: column;        /* ← column so caption sits below */
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.lightbox.open {
+  opacity: 1; pointer-events: all;
+}
+
+.lb-img-wrap {
+  position: relative;
+  max-width: 88vw; max-height: 84vh;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.lb-img-wrap img {
+  max-width: 88vw; max-height: 84vh;
+  width: auto; height: auto;
+  object-fit: contain;
+  display: block;
+  transform: scale(0.95);
+  transition: transform 0.4s var(--ease);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+}
+.lightbox.open .lb-img-wrap img {
+  transform: scale(1);
+}
+
+.lb-caption {
+  /* Caption flows naturally below the image, never overlaps */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;          /* tight gap between title and location */
+    padding: 1rem 0 0;
+    text-align: center;
+}
+.lb-title {
+  font-family: var(--serif);
+  font-size: 1.15rem; color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 0.15rem;       /* very small gap before location */
+}
+.lb-meta {
+  font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+.lb-counter {
+  font-size: 0.68rem; letter-spacing: 0.14em;
+  color: var(--text-dim);
+}
+
+.lb-close {
+  position: fixed; top: 1.5rem; right: 1.75rem;
+  width: 44px; height: 44px;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; background: rgba(13,13,13,0.7);
+  transition: border-color 0.3s;
+}
+.lb-close:hover { border-color: var(--gold); }
+.lb-close svg { width: 17px; stroke: var(--text-muted); fill: none; stroke-width: 1.5; }
+
+.lb-prev, .lb-next {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  width: 50px; height: 50px;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; background: rgba(13,13,13,0.7);
+  transition: border-color 0.3s, background 0.3s;
+}
+.lb-prev { left: 1.5rem; }
+.lb-next { right: 1.5rem; }
+.lb-prev:hover, .lb-next:hover {
+  border-color: var(--gold); background: var(--gold-glow);
+}
+.lb-prev svg, .lb-next svg {
+  width: 18px; stroke: var(--text-muted); fill: none; stroke-width: 1.5;
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .masonry { columns: 3; }
+  .gallery-panel { padding: 2.5rem 2.5rem 4rem; }
+}
+@media (max-width: 900px) {
+  .masonry { columns: 2; }
+  .photo-nav-inner { padding: 0 1.5rem; }
+}
+@media (max-width: 600px) {
+  .masonry { columns: 1; }
+  .gallery-panel { padding: 2rem 1.5rem 4rem; }
+  .lb-prev { left: 0.75rem; }
+  .lb-next { right: 0.75rem; }
+  .lb-close { top: 1rem; right: 1rem; }
+}

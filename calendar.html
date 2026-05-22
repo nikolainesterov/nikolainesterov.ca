@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendar — Nikolai Nesterov</title>
+  <meta name="description" content="Upcoming performances and past events — Nikolai Nesterov, pianist based in Calgary, Alberta.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" href="favicon.svg" /><!-- fallback for older browsers -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <style>
+    /* ── Calendar-specific overrides ── */
+    .cal-panel { display: none; }
+    .cal-panel.active { display: block; }
+
+    .cal-tabs {
+      display: flex; gap: 0;
+      width: fit-content;
+      border: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+    .cal-tab {
+      padding: 0.85rem 2.2rem;
+      font-family: var(--sans);
+      font-size: 0.71rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-dim);
+      background: var(--bg2); border: none; cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .cal-tab.active { background: var(--gold); color: var(--bg); }
+    .cal-tab:hover:not(.active) { color: var(--text-muted); }
+    .cal-tab-count {
+      display: inline-block;
+      font-size: 0.6rem; padding: 0.1em 0.45em;
+      background: rgba(255,255,255,0.1);
+    }
+    .cal-tab.active .cal-tab-count { background: rgba(13,13,13,0.2); }
+
+    /* Hero accent line */
+    .cal-hero-note {
+      font-size: 0.82rem; color: var(--text-dim); line-height: 1.65;
+      margin-top: 0.75rem; max-width: 500px;
+    }
+
+    /* No-events state */
+    .events-empty {
+      grid-column: 1 / -1;
+      padding: 5rem 2rem; text-align: center;
+      color: var(--text-dim);
+    }
+    .events-empty svg {
+      width: 48px; opacity: 0.25;
+      stroke: var(--text-dim); fill: none; stroke-width: 1;
+      margin: 0 auto 1.25rem; display: block;
+    }
+    .events-empty p {
+      font-family: var(--serif); font-size: 1.15rem;
+    }
+    .events-empty small {
+      display: block; margin-top: 0.5rem;
+      font-size: 0.8rem; color: var(--text-dim); opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══════════════════════════════════════ -->
+<nav id="nav">
+  <a class="nav-logo" href="index.html">Nikolai <span>Nesterov</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#performing">Performing</a></li>
+    <li><a href="index.html#teaching">Teaching</a></li>
+    <li><a href="photography.html">Photography</a></li>
+    <li><a href="calendar.html" class="active">Calendar</a></li>
+    <li><a href="recording.html">Recording</a></li>
+  </ul>
+  <a class="nav-cta" href="index.html#contact">Make a Booking</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html#about">About</a>
+  <a href="index.html#performing">Performing</a>
+  <a href="index.html#teaching">Teaching</a>
+  <a href="photography.html">Photography</a>
+  <a href="calendar.html">Calendar</a>
+  <a href="recording.html">Recording</a>
+  <a class="nav-cta" href="index.html#contact">Make a Booking</a>
+</div>
+
+<!-- ═══ PAGE HEADER ══════════════════════════════════════ -->
+<header class="page-header">
+  <div class="container">
+    <div class="page-header-eyebrow">Performances &amp; Events</div>
+    <h1>Concert <em>Calendar</em></h1>
+    <p>Upcoming performances and a record of past concerts, recitals, and events.</p>
+  </div>
+</header>
+
+<!-- ═══ CALENDAR CONTENT ══════════════════════════════════ -->
+<section style="background: var(--bg); padding: 5rem 0 7rem;">
+  <div class="container">
+
+    <!-- Tab switcher -->
+    <div class="cal-tabs">
+      <button class="cal-tab active" data-tab="upcoming">
+        Upcoming
+        <span class="cal-tab-count" id="countUpcoming"></span>
+      </button>
+      <button class="cal-tab" data-tab="past">
+        Past Events
+        <span class="cal-tab-count" id="countPast"></span>
+      </button>
+    </div>
+
+    <!-- Upcoming panel -->
+    <div class="cal-panel active" id="calPanel-upcoming">
+      <div class="events-grid" id="upcomingGrid">
+        <!-- Populated by calendar.js -->
+        <!-- Fallback shown while JS loads -->
+        <div class="events-empty">
+          <svg viewBox="0 0 48 48">
+            <rect x="6" y="10" width="36" height="32" rx="2" stroke-width="1"/>
+            <path d="M6 18h36M16 6v8M32 6v8" stroke-width="1"/>
+          </svg>
+          <p>No upcoming events at this time.</p>
+          <small>Check back soon — new concerts will be announced here.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Past panel -->
+    <div class="cal-panel" id="calPanel-past">
+      <div class="events-grid" id="pastGrid">
+        <!-- Populated by calendar.js -->
+        <div class="events-empty">
+          <svg viewBox="0 0 48 48">
+            <rect x="6" y="10" width="36" height="32" rx="2" stroke-width="1"/>
+            <path d="M6 18h36M16 6v8M32 6v8" stroke-width="1"/>
+          </svg>
+          <p>No past events listed yet.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="footer-logo">Nikolai <span>Nesterov</span></div>
+  <div class="footer-copy">&copy; 2025 Nikolai Nesterov. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="photography.html">Photography</a>
+    <a href="recording.html">Recording</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</footer>
+
+<!-- ═══ SCRIPTS ═══════════════════════════════════════════ -->
+<script src="js/nav.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/calendar.js"></script>
+
+<script>
+  /* ── Wire up tab switching & counts directly in page
+     (calendar.js populates grids; this handles UI) ── */
+  document.querySelectorAll('.cal-tab').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.cal-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.cal-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      var panel = document.getElementById('calPanel-' + btn.dataset.tab);
+      if (panel) panel.classList.add('active');
+    });
+  });
+</script>
+
+<script>
+  /* ── Restore tab from URL hash (#past or #upcoming) ── */
+  (function () {
+    var hash = window.location.hash.replace('#', ''); // 'past' or 'upcoming'
+    if (hash === 'past' || hash === 'upcoming') {
+      // Deactivate all tabs and panels
+      document.querySelectorAll('.cal-tab').forEach(function (b) {
+        b.classList.remove('active');
+      });
+      document.querySelectorAll('.cal-panel').forEach(function (p) {
+        p.classList.remove('active');
+      });
+      // Activate the correct one
+      var btn   = document.querySelector('.cal-tab[data-tab="' + hash + '"]');
+      var panel = document.getElementById('calPanel-' + hash);
+      if (btn)   btn.classList.add('active');
+      if (panel) panel.classList.add('active');
+    }
+  })();
+</script>
+
+</body>
+</html>

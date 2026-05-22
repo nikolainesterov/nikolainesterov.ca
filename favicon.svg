@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#0d0d0d"/>
+  <!-- Subtle border -->
+  <rect x="0.5" y="0.5" width="31" height="31" fill="none" stroke="#c9a96e" stroke-width="0.6" opacity="0.4"/>
+  <!-- Serif N — drawn as paths to mimic Cormorant Garamond weight and feel -->
+  <text
+    x="16"
+    y="24"
+    text-anchor="middle"
+    font-family="'Cormorant Garamond', Georgia, serif"
+    font-size="22"
+    font-weight="500"
+    fill="#c9a96e"
+    letter-spacing="0"
+  >N</text>
+</svg>

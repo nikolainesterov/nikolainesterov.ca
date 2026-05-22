@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recording Services — Nikolai Nesterov</title>
+  <meta name="description" content="Professional audio and video recording services for musicians, competitions, auditions, and applications — Nikolai Nesterov, Calgary AB.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" href="favicon.svg" /><!-- fallback for older browsers -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <style>
+  body { overflow-x: hidden; }
+
+  @media (max-width: 768px) {
+    /* Fix overflowing grids */
+    .equipment-grid,
+    .services-grid,
+    [style*="grid-template-columns: repeat(3"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* Fix any inline-grid that uses repeat(3...) */
+    [style*="repeat(3,1fr)"] {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Fix the intro section two-column grid */
+    .recording-intro-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* Fix the CTA box padding */
+    .recording-cta-box {
+      padding: 2rem 1.25rem !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══════════════════════════════════════ -->
+<nav id="nav">
+  <a class="nav-logo" href="index.html">Nikolai <span>Nesterov</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#performing">Performing</a></li>
+    <li><a href="index.html#teaching">Teaching</a></li>
+    <li><a href="photography.html">Photography</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="recording.html" class="active">Recording</a></li>
+  </ul>
+  <a class="nav-cta" href="index.html#contact">Make a Booking</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html#about">About</a>
+  <a href="index.html#performing">Performing</a>
+  <a href="index.html#teaching">Teaching</a>
+  <a href="photography.html">Photography</a>
+  <a href="calendar.html">Calendar</a>
+  <a href="recording.html">Recording</a>
+  <a class="nav-cta" href="index.html#contact">Make a Booking</a>
+</div>
+
+<!-- ═══ PAGE HEADER ══════════════════════════════════════ -->
+<header class="page-header">
+  <div class="container">
+    <div class="page-header-eyebrow">Professional Services</div>
+    <h1>Recording <em>Services</em></h1>
+    <p>High-quality audio and video recordings for musicians, competition submissions, auditions, and professional applications.</p>
+  </div>
+</header>
+
+<!-- ═══ INTRO ════════════════════════════════════════════ -->
+<section style="background: var(--bg2); padding: 6rem 0;">
+  <div class="container">
+    <div class="recording-intro-grid">
+
+      <!-- Image column -->
+      <div class="recording-image reveal">
+        <div class="rec-accent-tl"></div>
+        <!--
+          RECORDING PHOTO:
+          Replace this placeholder with:
+          <img src="images/about/recording.jpg" alt="Recording setup" />
+        -->
+        <div class="recording-image-placeholder">
+          <svg width="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="32" r="14" stroke="#c9a96e" stroke-width="0.8"/>
+            <path d="M28 32c0 6.627 5.373 12 12 12s12-5.373 12-12" stroke="#c9a96e" stroke-width="0.8"/>
+            <path d="M40 44v10M34 54h12" stroke="#c9a96e" stroke-width="0.8"/>
+            <rect x="14" y="14" width="16" height="24" rx="2" stroke="#c9a96e" stroke-width="0.8"/>
+            <path d="M14 36h16M18 18v16" stroke="#c9a96e" stroke-width="0.6"/>
+          </svg>
+        </div>
+        <div class="rec-accent-br"></div>
+      </div>
+
+      <!-- Text column -->
+      <div class="reveal reveal-delay-1">
+        <div class="section-label">About the Service</div>
+        <h2 class="section-title" style="margin-top:1.25rem;">
+          Crafted for the<br><em>serious musician</em>
+        </h2>
+        <p class="section-intro" style="margin-top:1.5rem;">
+          As both a performing musician and experienced photographer, I understand exactly what is needed to present yourself at your very best on recordings. Whether it's a competition submission, a conservatory application, or a professional portfolio piece — every detail matters.
+        </p>
+        <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.85; margin-top:1.25rem;">
+          I offer recordings in a professional setting using high-quality microphones and cameras, delivering results that are clean, balanced, and true to your artistry. Sessions can be tailored entirely to your needs — from a single piece to a full recital programme.
+        </p>
+        <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.85; margin-top:0.85rem;">
+          Sessions are available in Calgary by appointment. Reach out by email to discuss availability, repertoire, and to receive a personalised quote.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ EQUIPMENT ═════════════════════════════════════════ -->
+<section style="background: var(--bg); padding: 5rem 0;">
+  <div class="container">
+    <div class="section-label reveal">Equipment</div>
+    <h2 class="section-title reveal reveal-delay-1">
+      Professional-grade<br><em>tools and setup</em>
+    </h2>
+
+    <div class="equipment-grid reveal reveal-delay-2">
+
+      <div class="equip-item">
+        <div class="equip-icon">
+          <!-- Microphone icon -->
+          <svg viewBox="0 0 24 24">
+            <rect x="9" y="2" width="6" height="11" rx="3"/>
+            <path d="M5 10a7 7 0 0 0 14 0M12 19v3M8 22h8"/>
+          </svg>
+        </div>
+        <div class="equip-name">Professional Microphones</div>
+        <div class="equip-desc">Studio-grade condenser microphones capturing every nuance of your sound with precision and warmth.</div>
+      </div>
+
+      <div class="equip-item">
+        <div class="equip-icon">
+          <!-- Camera icon -->
+          <svg viewBox="0 0 24 24">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+        </div>
+        <div class="equip-name">Professional Camera</div>
+        <div class="equip-desc">High-resolution video capture — sharp, cinematic, and suitable for any professional submission or portfolio.</div>
+      </div>
+
+      <div class="equip-item">
+        <div class="equip-icon">
+          <!-- Sliders / mixing icon -->
+          <svg viewBox="0 0 24 24">
+            <line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/>
+            <line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/>
+            <line x1="1" y1="14" x2="7" y2="14"/>
+            <line x1="9" y1="8" x2="15" y2="8"/>
+            <line x1="17" y1="16" x2="23" y2="16"/>
+          </svg>
+        </div>
+        <div class="equip-name">Mixing &amp; Mastering</div>
+        <div class="equip-desc">Careful audio editing, balancing, and mastering to produce a polished final product ready for any audience.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SERVICES ══════════════════════════════════════════ -->
+<section style="background: var(--bg3); padding: 5rem 0;">
+  <div class="container">
+    <div class="section-label reveal">Service Options</div>
+    <h2 class="section-title reveal reveal-delay-1">
+      Two ways to<br><em>work together</em>
+    </h2>
+    <p class="section-intro reveal reveal-delay-2" style="max-width:580px; margin-top:1.25rem;">
+      Every musician's needs are different. Choose the option that works best for your schedule, workflow, and goals.
+    </p>
+
+    <div class="services-grid">
+
+      <!-- Option 1 -->
+      <div class="service-card reveal">
+        <div class="service-option">Option 01</div>
+        <div class="service-title">Raw Files Delivery</div>
+        <p class="service-desc">
+          Ideal for musicians who prefer to handle post-production themselves, or who already have an editor or audio engineer they work with. You receive all original files from the session — unedited, full quality.
+        </p>
+        <div class="service-includes">
+          <div class="service-includes-title">What you receive</div>
+          <div class="service-include">Original, unedited audio file(s) — full quality</div>
+          <div class="service-include">Original, unedited video file(s) — full resolution</div>
+          <div class="service-include">All recorded takes from your session</div>
+          <div class="service-include">Delivered via secure file transfer</div>
+        </div>
+        <a class="btn-ghost" href="mailto:studio@nikolainesterov.ca?subject=Recording%20Services%20Enquiry%20%E2%80%94%20Option%201">
+          Enquire by Email
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Option 2 -->
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-option">Option 02</div>
+        <div class="service-title">Full Production Package</div>
+        <p class="service-desc">
+          A complete, done-for-you recording experience. You show up, you play your best — I handle everything else. From recording through to the final polished product, delivered ready to submit or share.
+        </p>
+        <div class="service-includes">
+          <div class="service-includes-title">What you receive</div>
+          <div class="service-include">Professional audio recording &amp; editing</div>
+          <div class="service-include">Audio mixing &amp; mastering</div>
+          <div class="service-include">Professional video recording &amp; editing</div>
+          <div class="service-include">Colour grading &amp; sound synchronisation</div>
+          <div class="service-include">Final polished audio and video files</div>
+          <div class="service-include">Delivered via secure file transfer</div>
+        </div>
+        <a class="btn-ghost" href="mailto:studio@nikolainesterov.ca?subject=Recording%20Services%20Enquiry%20%E2%80%94%20Option%202">
+          Enquire by Email
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ WHO IS THIS FOR ════════════════════════════════════ -->
+<section style="background: var(--bg); padding: 5rem 0;">
+  <div class="container">
+    <div class="section-label reveal">Ideal For</div>
+    <h2 class="section-title reveal reveal-delay-1">
+      Who benefits from a<br><em>professional recording</em>
+    </h2>
+
+    <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:1px; border:1px solid var(--border); margin-top:3rem;" class="reveal reveal-delay-2">
+
+      <div style="padding:2rem 1.75rem; background:var(--bg2);">
+        <div style="font-family:var(--serif); font-size:1.15rem; color:var(--text); margin-bottom:0.6rem;">Students &amp; Young Musicians</div>
+        <p style="font-size:0.83rem; color:var(--text-muted); line-height:1.75;">RCM examinations, conservatory applications, or simply a keepsake of your progress — presented beautifully.</p>
+      </div>
+      <div style="padding:2rem 1.75rem; background:var(--bg2);">
+        <div style="font-family:var(--serif); font-size:1.15rem; color:var(--text); margin-bottom:0.6rem;">Competition Submissions</div>
+        <p style="font-size:0.83rem; color:var(--text-muted); line-height:1.75;">Many competitions now require video or audio submissions. Make yours stand out with a clean, professional recording.</p>
+      </div>
+      <div style="padding:2rem 1.75rem; background:var(--bg2);">
+        <div style="font-family:var(--serif); font-size:1.15rem; color:var(--text); margin-bottom:0.6rem;">Auditions &amp; Applications</div>
+        <p style="font-size:0.83rem; color:var(--text-muted); line-height:1.75;">University programs, orchestral auditions, and grant applications all benefit from a polished recorded portfolio.</p>
+      </div>
+      <div style="padding:2rem 1.75rem; background:var(--bg2);">
+        <div style="font-family:var(--serif); font-size:1.15rem; color:var(--text); margin-bottom:0.6rem;">Professional Portfolios</div>
+        <p style="font-size:0.83rem; color:var(--text-muted); line-height:1.75;">Showcase your artistry on your website or social media with recordings that reflect the quality of your playing.</p>
+      </div>
+      <div style="padding:2rem 1.75rem; background:var(--bg2);">
+        <div style="font-family:var(--serif); font-size:1.15rem; color:var(--text); margin-bottom:0.6rem;">Recital Documentation</div>
+        <p style="font-size:0.83rem; color:var(--text-muted); line-height:1.75;">Preserve your recital or performance for personal archives, teaching studios, or professional use.</p>
+      </div>
+      <div style="padding:2rem 1.75rem; background:var(--bg2);">
+        <div style="font-family:var(--serif); font-size:1.15rem; color:var(--text); margin-bottom:0.6rem;">Any Occasion</div>
+        <p style="font-size:0.83rem; color:var(--text-muted); line-height:1.75;">If you want a recording you are genuinely proud to share — this service is for you.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══════════════════════════════════════════════ -->
+<section style="background: var(--bg2); padding: 5rem 0;">
+  <div class="container">
+    <div class="recording-cta-box reveal">
+      <p>Ready to capture your best performance?</p>
+      <span>
+        Pricing is personalised to your session length, repertoire, and chosen service option.<br>
+        Get in touch by email to discuss details — I'm happy to answer any questions.
+      </span>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
+        <a class="btn-primary" href="mailto:info@nikolainesterov.ca?subject=Recording%20Services%20Enquiry">
+          Email to Enquire
+        </a>
+        <a class="btn-outline" href="index.html#contact">
+          Use Contact Form
+        </a>
+      </div>
+      <a class="email-link" href="mailto:studio@nikolainesterov.ca">studio@nikolainesterov.ca</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="footer-logo">Nikolai <span>Nesterov</span></div>
+  <div class="footer-copy">&copy; 2025 Nikolai Nesterov. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="photography.html">Photography</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</footer>
+
+<!-- ═══ SCRIPTS ═══════════════════════════════════════════ -->
+<script src="js/nav.js"></script>
+<script src="js/reveal.js"></script>
+
+</body>
+</html>

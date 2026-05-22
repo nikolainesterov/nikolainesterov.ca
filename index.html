@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nikolai Nesterov — Pianist · Teacher · Photographer</title>
+  <meta name="description" content="Pianist, piano and theory teacher, and photographer based in Calgary, Alberta. Offering private lessons, performances, and photography.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" href="favicon.svg" /><!-- fallback for older browsers -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══════════════════════════════════════ -->
+<nav id="nav">
+  <a class="nav-logo" href="index.html">Nikolai <span>Nesterov</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#performing">Performing</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="photography.html">Photography</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="recording.html">Recording</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Make a Booking</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="navDrawer">
+  <a href="#about">About</a>
+  <a href="#performing">Performing</a>
+  <a href="#teaching">Teaching</a>
+  <a href="photography.html">Photography</a>
+  <a href="calendar.html">Calendar</a>
+  <a href="recording.html">Recording</a>
+  <a class="nav-cta" href="#contact">Make a Booking</a>
+</div>
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section id="hero">
+  <!-- Fallback gradient background (always visible) -->
+  <div class="hero-bg-fallback"></div>
+
+  <!--
+    HERO PHOTO: Replace the src below with your performance photo.
+    Recommended: a high-contrast photo (you at the piano, stage lighting).
+    The overlay will handle darkening. Suggested size: 1920×1080px or wider.
+  -->
+  <div class="hero-bg-img-wrap">
+    <img src="images/hero/hero.jpg" alt=""
+         onerror="this.parentElement.style.display='none'" />
+  </div>
+
+  <div class="hero-overlay"></div>
+  <div class="hero-lines"></div>
+
+  <div class="hero-content">
+    <!-- <div class="hero-eyebrow">Calgary, Alberta</div> -->
+    <h1 class="hero-name">Nikolai<br><em>Nesterov</em></h1>
+    <p class="hero-tagline">
+       Pianist <span>·</span> Piano &amp; Music Theory Instructor <span>·</span> Photographer <!-- Piano &amp; Theory Teacher <span>·</span> Photographer -->
+    </p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="#teaching">Lessons &amp; Teaching</a>
+      <a class="btn-outline" href="photography.html">View Photography</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═════════════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Portrait -->
+      <div class="about-portrait reveal">
+        <div class="portrait-accent-tl"></div>
+        <div class="portrait-frame">
+          <!--
+            YOUR PHOTO: replace with
+            <img src="images/about/portrait.jpg" alt="Nikolai Nesterov" />
+          -->
+          <img src="images/about/portrait.jpg" alt="Nikolai Nesterov" />
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="28" r="16" stroke="#c9a96e" stroke-width="0.8"/>
+              <path d="M10 72c0-16.569 13.431-30 30-30s30 13.431 30 30" stroke="#c9a96e" stroke-width="0.8"/>
+            </svg>
+          </img>
+        </div>
+        <div class="portrait-accent-br"></div>
+      </div>
+
+      <!-- Body -->
+      <div class="about-body">
+        <div class="section-label reveal">About</div>
+        <h2 class="section-title reveal reveal-delay-1">
+          A life shaped by music,<br><em>inspired by nature</em>
+        </h2>
+        <p class="about-lead reveal reveal-delay-2">
+          Born into a family of musicians, Russian-Canadian pianist Nikolai Nesterov brings a deep passion for music and the arts to every performance, lesson, and image he captures.
+        </p>
+        <p class="about-text reveal reveal-delay-2">
+          Currently pursuing a Master of Music in Piano Performance at the University of Montréal under Henry Kramer, he previously completed his Bachelor of Music at the University of Calgary and trained at the Mount Royal Conservatory’s Academy of Music for the Gifted Youth and its Advanced Performance Program. Nikolai has performed with the Calgary Philharmonic Orchestra, appeared in concert series such as ProArts and Music @ Noon, and is an active chamber musician with the Peaks + Prairies Ensemble. Alongside performing, he is a dedicated piano teacher and also explores photography, computer programming, and the outdoors.
+        </p>
+
+        <!-- Stats -->
+        <div class="about-stats reveal reveal-delay-3">
+          <div class="stat">
+            <div class="stat-num">15+</div>
+            <div class="stat-label">Years Performing</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">10</div>
+            <div class="stat-label">Years Teaching</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Years Photography &amp; Recording</div>
+          </div>
+        </div>
+
+        <!-- Bullets — edit these as you like -->
+        <div class="about-bullets reveal">
+          <div class="about-bullet"><strong>Bachelor of Music</strong>(with Distinction) - University of Calgary</div>
+          <div class="about-bullet"><strong>Master of Music</strong> (Pending) - University of Montréal</div>
+          <div class="about-bullet">Alumnus, Academy for Gifted Youth — Mount Royal Conservatory</div>
+        </div>
+
+        <!-- CTA buttons -->
+        <div class="about-actions reveal">
+          <a class="btn-ghost" href="bio.html">
+            Full Bio
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <!--
+            ARTISTIC RÉSUMÉ PDF:
+            1. Upload your PDF to the project root folder.
+            2. Replace "resume.pdf" below with your actual filename.
+            3. target="_blank" opens it in a new tab.
+          -->
+          <a class="btn-ghost" href="resume.pdf" target="_blank" rel="noopener">
+            Artistic Résumé
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ PERFORMING ════════════════════════════════════════ -->
+<section id="performing">
+  <div class="container">
+    <div class="section-label reveal">Performance</div>
+    <h2 class="section-title reveal reveal-delay-1">
+      A life on<br><em>the concert stage</em>
+    </h2>
+
+    <!--
+      PERFORMANCE CARDS — click opens YouTube video.
+      Replace href="#" with your YouTube URL for each card.
+      e.g. href="https://www.youtube.com/watch?v=VIDEOID" target="_blank"
+    -->
+    <div class="highlights-grid reveal reveal-delay-2">
+
+      <a class="highlight-card" href="https://youtu.be/vaR1OMtSfOA?si=XCK62aq_1sIBuDvK" target="_blank" rel="noopener">
+        <div class="highlight-year">March 2024</div>
+        <div class="highlight-title">Brahms Piano Concerto No. 1 <br> I. Maestoso.</div>
+        <div class="highlight-detail">Nikolai Nesterov's Debut with the Calgary Philharmonic Orchestra.</div>
+        <div class="highlight-link-hint">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Watch on YouTube
+        </div>
+        <div class="highlight-num">01</div>
+      </a>
+
+      <a class="highlight-card" href="https://youtu.be/zb4mxoEIOZA?si=1Ldp0yu4K3Lgm72Z" target="_blank" rel="noopener">
+        <div class="highlight-year">March 2026</div>
+        <div class="highlight-title">Rachmaninov Rhapsody on a Theme of Paganini</div>
+        <div class="highlight-detail">From Nikolai's first-year Master's Recital at the University of Montréal.</div>
+        <div class="highlight-link-hint">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Watch on YouTube
+        </div>
+        <div class="highlight-num">02</div>
+      </a>
+
+      <a class="highlight-card" href="https://youtu.be/ESGVb-MbXvw?si=yKPvJS1UhlY-h67N" target="_blank" rel="noopener">
+        <div class="highlight-year">February 2025</div>
+        <div class="highlight-title">Advanced Performance Program Recital</div>
+        <div class="highlight-detail">Featuring works by Beethoven, Bach, Chopin, Liszt, and Prokofiev.</div>
+        <div class="highlight-link-hint">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Watch on YouTube
+        </div>
+        <div class="highlight-num">03</div>
+      </a>
+
+      <a class="highlight-card" href="https://youtu.be/5_lg2Kmtk60?si=fAY3mSlRCs6SbnCF" target="_blank" rel="noopener">
+        <div class="highlight-year">March 2023</div>
+        <div class="highlight-title">Rachmaninov: Piano Concerto No. 3 <br> II. Intermezzo</div>
+        <div class="highlight-detail">From Nikolai's Senior Rectial at the University of Calgary.</div>
+        <div class="highlight-link-hint">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Watch on YouTube
+        </div>
+        <div class="highlight-num">04</div>
+      </a>
+
+      <a class="highlight-card" href="https://youtu.be/uQjqSKhUsf8?si=7WIm_doS8Fp0rNqW" target="_blank" rel="noopener">
+        <div class="highlight-year">April 2024</div>
+        <div class="highlight-title">Brahms Piano Quintet in F minor <br> I. Allegro non troppo</div>
+        <div class="highlight-detail">Highlight from the Chamber Music Recital at the University of Calgary.</div>
+        <div class="highlight-link-hint">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Watch on YouTube
+        </div>
+        <div class="highlight-num">05</div>
+      </a>
+
+      <a class="highlight-card" href="https://youtu.be/-OpTqwQFxLs?si=iaH_waUFN2FG_-iv" target="_blank" rel="noopener">
+        <div class="highlight-year">May 2022</div>
+        <div class="highlight-title">Chopin Ballade No. 3 in A-flat Major, Op. 47</div>
+        <div class="highlight-detail">Highlight from a recording project thanks to Equilibrium School's scholarship for outstanding youths.</div>
+        <div class="highlight-link-hint">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Watch on YouTube
+        </div>
+        <div class="highlight-num">06</div>
+      </a>
+
+    </div>
+
+    <!-- Artists / Teachers -->
+    <div class="artists-section reveal">
+      <div class="artists-cols">
+
+        <div>
+          <div class="artists-col-label">Teachers</div>
+          <div class="artist-tags">
+            <!-- HAS website → <a> tag -->
+            <a  class="artist-tag" href="https://www.henrykramerpiano.com/" target="_blank" rel="noopener">Henry Kramer</a>
+            <a  class="artist-tag" href="https://janiparsons.com/" target="_blank" rel="noopener">Dr. Jani Parsons</a>
+            <a  class="artist-tag" href="https://www.bach-cantatas.com/Bio/Engle-Marilyn.htm" target="_blank" rel="noopener">Marilyn Engle</a>
+            <a  class="artist-tag" href="https://sites.google.com/site/dmitrynesterovpianostudio" target="_blank" rel="noopener">Dmitry Nesterov</a>
+            <!-- No website → <span> tag -->
+            <!-- <span class="artist-tag">Rolf Bertsch</span> -->
+            <!-- Add more teachers here — use <a> or <span> as appropriate -->
+          </div>
+        </div>
+
+        <div>
+          <div class="artists-col-label">Worked With</div>
+          <div class="artist-tags">
+            <a  class="artist-tag" href="https://www.davidjalbert.com" target="_blank" rel="noopener">David Jalbert</a>
+            <a  class="artist-tag" href="https://www.fredericchiu.com" target="_blank" rel="noopener">Frederic Chiu</a>
+            <a  class="artist-tag" href="https://www.orlishaham.com" target="_blank" rel="noopener">Orli Shaham</a>
+            <a  class="artist-tag" href="https://www.juilliard.edu/music/faculty/lowenthal-jerome" target="_blank" rel="noopener">Jerome Lowenthal</a>
+            <a  class="artist-tag" href="https://colbertartists.com/artists/ursula-oppens/" target="_blank" rel="noopener">Ursula Oppens</a>
+            <a  class="artist-tag" href="https://en.wikipedia.org/wiki/Steven_Lubin" target="_blank" rel="noopener">Steven Lubin</a>
+            <a  class="artist-tag" href="https://www.mtroyal.ca/ProgramsCourses/FacultiesSchoolsCentres/TheConservatory/ContactUs/Faculty/_bios/cons_bio_bertsch.htm" target="_blank" rel="noopener">Rolf Bertsch</a>
+          
+            <!-- No website found — keep as span -->
+            <!-- <span class="artist-tag">Steven Lubin</span> -->
+            <!-- Add more collaborators here -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ TEACHING ══════════════════════════════════════════ -->
+<section id="teaching">
+  <div class="container">
+    <div class="teaching-intro">
+      <div>
+        <div class="section-label reveal">Teaching Studio</div>
+        <h2 class="section-title reveal reveal-delay-1">
+          Cultivating the<br><em>next generation</em>
+        </h2>
+        <p class="section-intro reveal reveal-delay-2">
+          Private lessons offered online and in-person at my home studio in Scenic Acres, NW Calgary — near the Crowfoot C-Train Station. Students of all ages and levels welcome.
+        </p>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="teaching-meta-item">
+          <div class="tmk">Location</div>
+          <div class="tmv">Scenic Acres, NW Calgary<br>Near Crowfoot C-Train Station</div>
+        </div>
+        <div class="teaching-meta-item">
+          <div class="tmk">Format</div>
+          <div class="tmv">In-person or Online</div>
+        </div>
+        <div class="teaching-meta-item">
+          <div class="tmk">Ages</div>
+          <div class="tmv">Age 5 through adult</div>
+        </div>
+        <div class="teaching-meta-item">
+          <div class="tmk">Recitals</div>
+          <div class="tmv">Bi-annual student recitals</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lessons-grid">
+      <div class="lesson-card reveal">
+        <div class="lesson-icon">
+          <svg viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Three white keys -->
+            <rect x="1"  y="1" width="7" height="20" stroke="#c9a96e" stroke-width="1"/>
+            <rect x="8"  y="1" width="7" height="20" stroke="#c9a96e" stroke-width="1"/>
+            <rect x="15" y="1" width="7" height="20" stroke="#c9a96e" stroke-width="1"/>
+            <!-- Two black keys (C# and D#) -->
+            <rect x="6"  y="1" width="4" height="10"  fill="#c9a96e"/>
+            <rect x="13" y="1" width="4" height="10"  fill="#c9a96e"/>
+          </svg>
+
+        </div>
+        <div class="lesson-name">Piano</div>
+        <p class="lesson-desc">Build a strong technical and musical foundation — from beginners learning their first notes to advanced students preparing for high-level examinations.</p>
+        <div class="lesson-features">
+          <div class="lesson-feature">RCM Examinations — all levels</div>
+          <div class="lesson-feature">Festivals &amp; Competitions preparation</div>
+          <div class="lesson-feature">Technique, tone, and posture development</div>
+          <div class="lesson-feature">Ear training &amp; sight-reading</div>
+          <div class="lesson-feature">Expressive flexibility &amp; musical phrasing</div>
+        </div>
+      </div>
+      <div class="lesson-card reveal reveal-delay-1">
+        <div class="lesson-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M9 18V5l12-2v13"/>
+            <circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+          </svg>
+        </div>
+        <div class="lesson-name">Music Theory & Harmony</div>
+        <p class="lesson-desc">A solid theoretical foundation unlocks deeper musicianship. Available online or in-person for students at all levels of the Royal Conservatory curriculum.</p>
+        <div class="lesson-features">
+          <div class="lesson-feature">Theory: Preparatory through RCM Level 8</div>
+          <div class="lesson-feature">History: RCM Level 9, 10, and ARCT</div>
+          <div class="lesson-feature">Harmony, counterpoint, ear training</div>
+          <div class="lesson-feature">Analysis &amp; score study</div>
+          <div class="lesson-feature">RCM exam preparation</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="teaching-cta reveal">
+      <p class="teaching-cta-lead">Ready to begin your musical journey?</p>
+      <a class="btn-primary" href="#contact">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CONTACT ═══════════════════════════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div>
+        <div class="section-label reveal">Contact</div>
+        <h2 class="section-title reveal reveal-delay-1">
+          Let's make<br><em>music together</em>
+        </h2>
+        <p class="contact-lead reveal reveal-delay-2">
+          Whether you're looking to begin piano lessons, continue your theory studies, or enquire about recordings or performances — I'd love to hear from you.
+        </p>
+        <div class="contact-items reveal reveal-delay-2">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Studio Location</div>
+              <div class="contact-val">Scenic Acres, NW Calgary, AB</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-val">studio@nikolainesterov.ca</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Lessons</div>
+              <div class="contact-val">In-person (Calgary) &amp; Online</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form (powered by EmailJS) -->
+      <form class="contact-form reveal" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input class="form-input" type="text" name="from_name" placeholder="Jane" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" name="last_name" placeholder="Smith" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" name="from_email" placeholder="jane@example.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Enquiry Type</label>
+          <select class="form-select" name="subject">
+            <option value="">Select…</option>
+            <option>Piano Lessons</option>
+            <option>Music Theory Lessons</option>
+            <option>Recording Services</option>
+            <option>Performance Enquiry</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" name="message" placeholder="Tell me a bit about your goals or questions…" required></textarea>
+        </div>
+        <div class="form-message" id="formMessage"></div>
+
+        <!-- Google reCAPTCHA — replace YOUR_SITE_KEY with your actual site key -->
+        <div class="g-recaptcha" 
+             data-sitekey="6LdiaPcsAAAAAKJT6uSJX7dYJXjqT6fj_jpTrZ8C"
+             data-theme="dark"
+             style="margin-bottom: 1rem;">
+        </div>
+
+        <button type="submit" class="form-submit">Send Message</button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="footer-logo">Nikolai <span>Nesterov</span></div>
+  <div class="footer-copy">&copy; 2025 Nikolai Nesterov. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="photography.html">Photography</a>
+    <a href="recording.html">Recording</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<!-- ═══ SCRIPTS ═══════════════════════════════════════════ -->
+<!-- EmailJS SDK — insert your Public Key below after initialising in contact.js -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/contact.js"></script>
+
+</body>
+</html>
