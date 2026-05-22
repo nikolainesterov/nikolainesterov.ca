@@ -101,6 +101,7 @@ var EMAILJS_CONFIG = {
     // Collect template params
     var params = {
       from_name:  form.querySelector('[name="from_name"]').value.trim(),
+      last_name:  (form.querySelector('[name="last_name"]') || { value: '' }).value.trim(),
       from_email: form.querySelector('[name="from_email"]').value.trim(),
       subject:    (form.querySelector('[name="subject"]') || { value: 'Website Enquiry' }).value,
       message:    form.querySelector('[name="message"]').value.trim()
