@@ -83,6 +83,13 @@ var GALLERY_DATA = {
 (function () {
   'use strict';
 
+  // Disable right-click context menu on gallery images
+  document.addEventListener('contextmenu', function (e) {
+    if (e.target.closest('.masonry-item') || e.target.id === 'lbImg') {
+      e.preventDefault();
+    }
+  });
+
   var currentPhotos = [];   // flat array of photos in current category
   var currentIndex  = 0;    // lightbox current index
 

@@ -248,6 +248,21 @@
   width: 18px; stroke: var(--text-muted); fill: none; stroke-width: 1.5;
 }
 
+/* ── Disable right-click save and drag-to-desktop on gallery images ── */
+.masonry-item img,
+#lbImg {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;   /* disables right-click on the img itself */
+}
+
+/* Keep the parent item clickable for the lightbox */
+.masonry-item {
+  pointer-events: all;
+}
+
 /* ─── RESPONSIVE ────────────────────────────────────────── */
 @media (max-width: 1200px) {
   .masonry { columns: 3; }

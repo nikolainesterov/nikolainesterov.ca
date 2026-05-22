@@ -33,7 +33,7 @@ var EMAILJS_CONFIG = {
   submitBtn = form.querySelector('.form-submit');
 
   /* ── Init EmailJS ── */
-  if (typeof emailjs !== 'undefined' && EMAILJS_CONFIG.publicKey !== '3-TPn11tc66xQUPsW') {
+    if (typeof emailjs !== 'undefined') {
     emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
   }
 
@@ -93,10 +93,6 @@ var EMAILJS_CONFIG = {
     // If EmailJS not configured, show a warning
     if (typeof emailjs === 'undefined') {
       showMsg('EmailJS SDK not loaded. Please check your HTML script tag.', true);
-      return;
-    }
-    if (EMAILJS_CONFIG.publicKey === '3-TPn11tc66xQUPsW') {
-      showMsg('Please configure your EmailJS credentials in js/contact.js', true);
       return;
     }
 
