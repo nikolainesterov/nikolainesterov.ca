@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://nikolainesterov.ca/</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Photography -->
+  <url>
+    <loc>https://nikolainesterov.ca/photography.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Calendar -->
+  <url>
+    <loc>https://nikolainesterov.ca/calendar.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Recording Services -->
+  <url>
+    <loc>https://nikolainesterov.ca/recording.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Full Biography -->
+  <url>
+    <loc>https://nikolainesterov.ca/bio.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Event: Master's Recital -->
+  <url>
+    <loc>https://nikolainesterov.ca/events/masters-recital.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!--
+    HOW TO ADD NEW PAGES
+    ─────────────────────
+    Copy any <url> block above and paste it here.
+    Update <loc>, <lastmod> (today's date YYYY-MM-DD), and <priority>.
+
+    Priority guide:
+      1.0  → homepage
+      0.8  → main nav pages
+      0.6  → secondary/hidden pages (bio, resume)
+      0.5  → individual event pages
+
+    Changefreq guide:
+      weekly   → calendar (updated often)
+      monthly  → most pages
+      never    → past event pages that won't change
+  -->
+
+</urlset>
