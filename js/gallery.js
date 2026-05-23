@@ -43,8 +43,16 @@ var GALLERY_DATA = {
   },
 
   astrophotography: {
-    title: 'Astrophotography',
+    title: 'Astro',
     description: 'Looking upward into deep time — capturing the stillness, motion, and vastness of the universe above.',
+    photos: [
+      // ADD ASTROPHOGRAPHY PHOTOS HERE
+    ]
+  },
+
+  wildlife: {
+    title: 'Wildlife',
+    description: 'Life in its untamed rhythm — quiet encounters, instinct, and the presence of animals in the wild.',
     photos: [
       // ADD ASTROPHOGRAPHY PHOTOS HERE
     ]
@@ -53,6 +61,14 @@ var GALLERY_DATA = {
   portrait: {
     title: 'Portrait',
     description: 'Faces and stories — candid and composed portraits.',
+    photos: [
+      // ADD PORTRAIT PHOTOS HERE
+    ]
+  },
+
+  portrait: {
+    title: 'Close-up',
+    description: 'Details often overlooked — texture, form, and small moments seen at intimate range.',
     photos: [
       // ADD PORTRAIT PHOTOS HERE
     ]
