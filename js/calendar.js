@@ -19,8 +19,8 @@ var EVENTS = [
     time:    '1:30 PM',
     venue:   'Salle Serge-Garant, Université de Montréal',
     city:    'Montréal, Québéc',
-    image:   '../images/events/masters-recital-1/cover.jpg',
-    link:    '../events/masters-recital-1.html',
+    image:   'images/events/masters-recital-1/cover.jpg',
+    link:    'events/masters-recital-1.html',
     upcoming: true                  // set false once event has passed
   },
 

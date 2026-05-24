@@ -27,21 +27,21 @@ var GALLERY_DATA = {
       // Example:
       // { src: 'images/gallery/landscape/rockies.jpg', title: 'Canadian Rockies', location: 'Banff, AB' },
       // { src: 'images/gallery/landscape/bow-valley.jpg', title: 'Bow Valley Sunset', location: 'Canmore, AB' },
-      { src: '../images/gallery/landscape/Galactic Tides.JPG', title: 'Galactic Tides', location: "Quidi Vidi, St. John's, Newfoundland" },
-      { src: '../images/gallery/landscape/Branches of the Infinite.JPG', title: 'Branches of the Infinite', location: "Orford, Québéc" },
-      { src: '../images/gallery/landscape/Snow and Starlit Fire.JPG', title: 'Snow and Starlit Fire', location: "Orford, Québéc" },
-      { src: '../images/gallery/landscape/Sunset Waves on the Rocks.JPG', title: 'Sunset Waves on the Rocks', location: "Los Arcos, Puerto Vallarta, Mexico" },
-      { src: '../images/gallery/landscape/Celestial Harvest.JPG', title: 'Celestial Harvest', location: "Pincher Creek, Alberta" },
-      { src: '../images/gallery/landscape/Twilight Whispers.JPG', title: 'Twilight Whispers', location: "Nakusp, British Columbia" },
-      { src: '../images/gallery/landscape/Waterton.JPG', title: 'Waterton', location: "Waterton, Alberta" },
-      { src: '../images/gallery/landscape/The Tree of Life.JPG', title: 'The Tree of Life', location: "Alberta" },
-      { src: '../images/gallery/landscape/_J8A5115.JPG', title: '_J8A5115', location: "Newfoundland" },
-      { src: '../images/gallery/landscape/_J8A7547.JPG', title: '_J8A7547', location: "Paradise Valley, Alberta" },
-      { src: '../images/gallery/landscape/_J8A7564.JPG', title: '_J8A7564', location: "Paradise Valley, Alberta" },
-      { src: '../images/gallery/landscape/Sunset at Quidi Vidi.JPG', title: 'Sunset at Quidi Vidi', location: "Quidi Vidi, St. John's, Newfoundland" },
-      { src: '../images/gallery/landscape/_J8A0032.JPG', title: '_J8A0032', location: "Mont Mégantic, Québéc" },
-      { src: '../images/gallery/landscape/_J8A9771.JPG', title: '_J8A9771', location: ""},
-      { src: '../images/gallery/landscape/Grotto Mountain.JPG', title: 'Grotto Mountain', location: "Cammore" },
+      { src: 'images/gallery/landscape/Galactic Tides.JPG', title: 'Galactic Tides', location: "Quidi Vidi, St. John's, Newfoundland" },
+      { src: 'images/gallery/landscape/Branches of the Infinite.JPG', title: 'Branches of the Infinite', location: "Orford, Québéc" },
+      { src: 'images/gallery/landscape/Snow and Starlit Fire.JPG', title: 'Snow and Starlit Fire', location: "Orford, Québéc" },
+      { src: 'images/gallery/landscape/Sunset Waves on the Rocks.JPG', title: 'Sunset Waves on the Rocks', location: "Los Arcos, Puerto Vallarta, Mexico" },
+      { src: 'images/gallery/landscape/Celestial Harvest.JPG', title: 'Celestial Harvest', location: "Pincher Creek, Alberta" },
+      { src: 'images/gallery/landscape/Twilight Whispers.JPG', title: 'Twilight Whispers', location: "Nakusp, British Columbia" },
+      { src: 'images/gallery/landscape/Waterton.JPG', title: 'Waterton', location: "Waterton, Alberta" },
+      { src: 'images/gallery/landscape/The Tree of Life.JPG', title: 'The Tree of Life', location: "Alberta" },
+      { src: 'images/gallery/landscape/_J8A5115.JPG', title: '_J8A5115', location: "Newfoundland" },
+      { src: 'images/gallery/landscape/_J8A7547.JPG', title: '_J8A7547', location: "Paradise Valley, Alberta" },
+      { src: 'images/gallery/landscape/_J8A7564.JPG', title: '_J8A7564', location: "Paradise Valley, Alberta" },
+      { src: 'images/gallery/landscape/Sunset at Quidi Vidi.JPG', title: 'Sunset at Quidi Vidi', location: "Quidi Vidi, St. John's, Newfoundland" },
+      { src: 'images/gallery/landscape/_J8A0032.JPG', title: '_J8A0032', location: "Mont Mégantic, Québéc" },
+      { src: 'images/gallery/landscape/_J8A9771.JPG', title: '_J8A9771', location: ""},
+      { src: 'images/gallery/landscape/Grotto Mountain.JPG', title: 'Grotto Mountain', location: "Cammore" },
 
 
     ]
@@ -51,8 +51,8 @@ var GALLERY_DATA = {
     title: 'Astro',
     description: 'Looking upward into deep time — capturing the stillness, motion, and vastness of the universe above.',
     photos: [
-      { src: '../images/gallery/astro/Our Moon.JPG', title: "Our Moon", location: "Space"},
-      { src: '../images/gallery/astro/The Orion Nebula.JPG', title: "The Orion Nebula (M42)", location: "Deep Space"},
+      { src: 'images/gallery/astro/Our Moon.JPG', title: "Our Moon", location: "Space"},
+      { src: 'images/gallery/astro/The Orion Nebula.JPG', title: "The Orion Nebula (M42)", location: "Deep Space"},
     ]
   },
 
@@ -60,9 +60,9 @@ var GALLERY_DATA = {
     title: 'Wildlife',
     description: 'Life in its untamed rhythm — quiet encounters, instinct, and the presence of animals in the wild.',
     photos: [
-      { src: "../images/gallery/wildlife/Stellar's Jay.JPG", title: "Stellar's Jay", location: "Lake Louise, Alberta"},
-      { src: '../images/gallery/wildlife/Stout.JPG', title: "Eurasian Ermine (Stoat)", location: "Alberta"},
-      { src: '../images/gallery/wildlife/Northern Flicker.JPG', title: "Northern Flicker", location: "Alberta"},
+      { src: "images/gallery/wildlife/Stellar's Jay.JPG", title: "Stellar's Jay", location: "Lake Louise, Alberta"},
+      { src: 'images/gallery/wildlife/Stout.JPG', title: "Eurasian Ermine (Stoat)", location: "Alberta"},
+      { src: 'images/gallery/wildlife/Northern Flicker.JPG', title: "Northern Flicker", location: "Alberta"},
 
     ]
   },
@@ -79,7 +79,7 @@ var GALLERY_DATA = {
     title: 'Close-up',
     description: 'Details often overlooked — texture, form, and small moments seen at intimate range.',
     photos: [
-      { src: '../images/gallery/close-up/A Fragile Coexistence.JPG', title: 'A Fragile Coexistence', location: "Alberta" },
+      { src: 'images/gallery/close-up/A Fragile Coexistence.JPG', title: 'A Fragile Coexistence', location: "Alberta" },
 
     ]
   },
@@ -96,7 +96,7 @@ var GALLERY_DATA = {
     title: 'Urban',
     description: 'City geometry, light, and movement.',
     photos: [
-      { src: '../images/gallery/urban/_J8A2778.JPG', title: "_J8A2778", location: "Magog, Québéc"},
+      { src: 'images/gallery/urban/_J8A2778.JPG', title: "_J8A2778", location: "Magog, Québéc"},
     ]
   },
 };
