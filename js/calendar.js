@@ -28,9 +28,9 @@ var EVENTS = [
     title:   "Peaks + Prairies Ensemble: <br> 5th Anniversary Concert I",
     date:    '2026-06-27',         // YYYY-MM-DD format
     time:    '2:00 PM',
-    venue:   "Venue in Calgary will be announced soon",
-    city:    '',
-    image:   'https://lh3.googleusercontent.com/sitesv/AA5AbUC0thcpgDxYQRakrXpA4HP5l0kX9izI3BhOEY-HEErgckJSSEPcySokfOq56ObSQq1f-oxRGyi74ctc968Tq5jd0Mmuz_KKMuWrg5YGJAe6epQZAO9oPRBYfYjlUbpPopU64CsfYZ_oSpMaIph3usevdO_UYbYhmirSpB5NX9uSNI1oTX_N6N67=w1280',
+    venue:   "Mamdani Opera Centre",
+    city:    'Calgary, Alberta',
+    image:   'images/events/peaks+prairies 5th anniversary/cover.jpg',
     link:    'https://www.livefromtherockies.ca/events/peaks-prairies-ensemble-5th-anniversary-concert',
     upcoming: true                  // set false once event has passed
   },
@@ -41,7 +41,7 @@ var EVENTS = [
     time:    '2:00 PM',
     venue:   "St. George's in the Pines Anglican Church",
     city:    'Banff, Alberta',
-    image:   'https://lh3.googleusercontent.com/sitesv/AA5AbUC0thcpgDxYQRakrXpA4HP5l0kX9izI3BhOEY-HEErgckJSSEPcySokfOq56ObSQq1f-oxRGyi74ctc968Tq5jd0Mmuz_KKMuWrg5YGJAe6epQZAO9oPRBYfYjlUbpPopU64CsfYZ_oSpMaIph3usevdO_UYbYhmirSpB5NX9uSNI1oTX_N6N67=w1280',
+    image:   'images/events/peaks+prairies 5th anniversary/cover.jpg',
     link:    'https://www.livefromtherockies.ca/events/peaks-prairies-ensemble-5th-anniversary-concert',
     upcoming: true                  // set false once event has passed
   },

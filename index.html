@@ -385,10 +385,10 @@
           Let's make<br><em>music together</em>
         </h2>
         <p class="contact-lead reveal reveal-delay-2">
-          Whether you're looking to begin piano lessons, continue your theory studies, or enquire about recordings or performances — I'd love to hear from you.
+          Whether you're looking to begin piano lessons, continue your theory studies, or inquire about recordings, photography, or performances — I'd love to hear from you.
         </p>
         <div class="contact-items reveal reveal-delay-2">
-          <div class="contact-item">
+          <!-- <div class="contact-item">
             <div class="contact-icon">
               <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
@@ -396,27 +396,83 @@
               <div class="contact-label">Studio Location</div>
               <div class="contact-val">Scenic Acres, NW Calgary, AB</div>
             </div>
-          </div>
-          <div class="contact-item">
+          </div> -->
+
+          <!-- <div class="contact-item">
             <div class="contact-icon">
               <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
             </div>
             <div>
               <div class="contact-label">Email</div>
-              <div class="contact-val">studio@nikolainesterov.ca</div>
+              <a class="contact-val" href="mailto:info@nikolainesterov.ca"
+                 style="color:var(--text-muted); transition:color 0.3s;"
+                 onmouseover="this.style.color='var(--gold)'"
+                 onmouseout="this.style.color='var(--text-muted)'">
+                studio@nikolainesterov.ca
+              </a>
             </div>
-          </div>
-          <div class="contact-item">
+          </div> -->
+
+          <a class="contact-item" href="mailto:Nikolai Nesterov's Music Studio studio@nikolainesterov.ca"
+             target="_blank" rel="noopener"
+             style="text-decoration:none; transition:border-color 0.3s;"
+             onmouseover="this.querySelector('.contact-icon svg').style.stroke='var(--gold)'; this.querySelector('.contact-val').style.color='var(--gold)'"
+             onmouseout="this.querySelector('.contact-icon svg').style.stroke='var(--gold)'; this.querySelector('.contact-val').style.color='var(--text-muted)'">
             <div class="contact-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
             </div>
             <div>
-              <div class="contact-label">Lessons</div>
-              <div class="contact-val">In-person (Calgary) &amp; Online</div>
+              <div class="contact-label">Email</div>
+              <div class="contact-val" style="color:var(--text-muted); transition:color 0.3s;">
+                studio@nikolainesterov.ca
+              </div>
             </div>
-          </div>
+          </a>
+
+          <a class="contact-item" href="https://www.instagram.com/nikolai_.nesterov.piano"
+             target="_blank" rel="noopener"
+             style="text-decoration:none; transition:border-color 0.3s;"
+             onmouseover="this.querySelector('.contact-icon svg').style.stroke='var(--gold)'; this.querySelector('.contact-val').style.color='var(--gold)'"
+             onmouseout="this.querySelector('.contact-icon svg').style.stroke='var(--gold)'; this.querySelector('.contact-val').style.color='var(--text-muted)'">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-label">Music — Instagram</div>
+              <div class="contact-val" style="color:var(--text-muted); transition:color 0.3s;">
+                @nikolai_.nesterov.piano
+              </div>
+            </div>
+          </a>
+
+          <a class="contact-item" href="https://www.instagram.com/nikolai_.nesterov.photo"
+             target="_blank" rel="noopener"
+             style="text-decoration:none; transition:border-color 0.3s;"
+             onmouseover="this.querySelector('.contact-icon svg').style.stroke='var(--gold)'; this.querySelector('.contact-val').style.color='var(--gold)'"
+             onmouseout="this.querySelector('.contact-icon svg').style.stroke='var(--gold)'; this.querySelector('.contact-val').style.color='var(--text-muted)'">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-label">Photography — Instagram</div>
+              <div class="contact-val" style="color:var(--text-muted); transition:color 0.3s;">
+                @nikolai_.nesterov.photo
+              </div>
+            </div>
+          </a>
+
         </div>
       </div>
+
+      <!-- Contact Form (powered by EmailJS) -->
 
       <!-- Contact Form (powered by EmailJS) -->
       <form class="contact-form reveal" id="contactForm" novalidate>
