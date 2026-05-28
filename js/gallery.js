@@ -77,7 +77,7 @@ var GALLERY_DATA = {
     title: 'Portrait',
     description: 'Faces and stories — candid and composed portraits.',
     photos: [
-      { src: 'images/gallery/portrait/My Grandmother.JPG', title: 'My Grandmother', caption: "Margarita Nikolaevna Beliaeva" },
+      { src: 'images/gallery/portrait/My Grandmother.jpg', title: 'My Grandmother', caption: "Margarita Nikolaevna Beliaeva" },
 
     ]
   },
@@ -306,7 +306,7 @@ var GALLERY_DATA = {
         var img = document.createElement('img');
         img.src       = item.photo.src;
         img.alt       = item.photo.title || '';
-        img.loading   = 'lazy';
+        img.loading   = 'eager';
         img.draggable = false;
         img.style.cssText =
           'width:100%; height:100%; object-fit:cover; display:block;' +
