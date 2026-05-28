@@ -9,7 +9,7 @@
    2. Add an entry to GALLERY_DATA below in the correct category:
       { src: 'images/gallery/landscape/my-photo.jpg',
         title: 'My Photo Title',
-        location: 'Place, AB' }
+        caption: 'Place, AB' }
 
    3. Save the file. Done. The gallery rebuilds automatically.
 ──────────────────────────────────────────────────────────── */
@@ -25,23 +25,29 @@ var GALLERY_DATA = {
     photos: [
       // ADD LANDSCAPE PHOTOS HERE
       // Example:
-      // { src: 'images/gallery/landscape/rockies.jpg', title: 'Canadian Rockies', location: 'Banff, AB' },
-      // { src: 'images/gallery/landscape/bow-valley.jpg', title: 'Bow Valley Sunset', location: 'Canmore, AB' },
-      { src: 'images/gallery/landscape/Galactic Tides.JPG', title: 'Galactic Tides', location: "Quidi Vidi, St. John's, Newfoundland" },
-      { src: 'images/gallery/landscape/Branches of the Infinite.JPG', title: 'Branches of the Infinite', location: "Orford, Québéc" },
-      { src: 'images/gallery/landscape/Snow and Starlit Fire.JPG', title: 'Snow and Starlit Fire', location: "Orford, Québéc" },
-      { src: 'images/gallery/landscape/Sunset Waves on the Rocks.JPG', title: 'Sunset Waves on the Rocks', location: "Los Arcos, Puerto Vallarta, Mexico" },
-      { src: 'images/gallery/landscape/Celestial Harvest.JPG', title: 'Celestial Harvest', location: "Pincher Creek, Alberta" },
-      { src: 'images/gallery/landscape/Twilight Whispers.JPG', title: 'Twilight Whispers', location: "Nakusp, British Columbia" },
-      { src: 'images/gallery/landscape/Waterton.JPG', title: 'Waterton', location: "Waterton, Alberta" },
-      { src: 'images/gallery/landscape/The Tree of Life.JPG', title: 'The Tree of Life', location: "Alberta" },
-      { src: 'images/gallery/landscape/_J8A5115.JPG', title: '_J8A5115', location: "Newfoundland" },
-      { src: 'images/gallery/landscape/_J8A7547.JPG', title: '_J8A7547', location: "Paradise Valley, Alberta" },
-      { src: 'images/gallery/landscape/_J8A7564.JPG', title: '_J8A7564', location: "Paradise Valley, Alberta" },
-      { src: 'images/gallery/landscape/Sunset at Quidi Vidi.JPG', title: 'Sunset at Quidi Vidi', location: "Quidi Vidi, St. John's, Newfoundland" },
-      { src: 'images/gallery/landscape/_J8A0032.JPG', title: '_J8A0032', location: "Mont Mégantic, Québéc" },
-      { src: 'images/gallery/landscape/_J8A9771.JPG', title: '_J8A9771', location: ""},
-      { src: 'images/gallery/landscape/Grotto Mountain.JPG', title: 'Grotto Mountain', location: "Cammore" },
+      // { src: 'images/gallery/landscape/rockies.jpg', title: 'Canadian Rockies', caption: 'Banff, AB' },
+      // { src: 'images/gallery/landscape/bow-valley.jpg', title: 'Bow Valley Sunset', caption: 'Canmore, AB' },
+      { src: 'images/gallery/landscape/Galactic Tides.JPG', title: 'Galactic Tides', caption: "Quidi Vidi, St. John's, Newfoundland" },
+      { src: 'images/gallery/landscape/Silver Cascade.JPG', title: 'Silver Cascade', caption: "Johnston Canyon, Banff" },
+      { src: 'images/gallery/landscape/Branches of the Infinite.JPG', title: 'Branches of the Infinite', caption: "Orford, Québéc" },
+      { src: 'images/gallery/landscape/Snow and Starlit Fire.JPG', title: 'Snow and Starlit Fire', caption: "Orford, Québéc" },
+      { src: 'images/gallery/landscape/Sunset Waves on the Rocks.JPG', title: 'Sunset Waves on the Rocks', caption: "Los Arcos, Puerto Vallarta, Mexico" },
+      { src: 'images/gallery/landscape/Celestial Harvest.JPG', title: 'Celestial Harvest', caption: "Pincher Creek, Alberta" },
+      { src: 'images/gallery/landscape/Twilight Whispers.JPG', title: 'Twilight Whispers', caption: "Nakusp, British Columbia" },
+      { src: 'images/gallery/landscape/Waterton.JPG', title: 'Waterton', caption: "Waterton, Alberta" },
+      { src: 'images/gallery/landscape/The Tree of Life.JPG', title: 'The Tree of Life', caption: "Alberta" },
+      { src: 'images/gallery/landscape/_J8A5115.JPG', title: '_J8A5115', caption: "Newfoundland" },
+      { src: 'images/gallery/landscape/_J8A7547.JPG', title: 'Giant Steps Waterfall', caption: "Paradise Valley, Alberta" },
+      { src: 'images/gallery/landscape/The Vein of Fire.JPG', title: 'The Vein of Fire', caption: "Johnston Canyon, Banff" },
+      { src: 'images/gallery/landscape/_J8A7564.JPG', title: '_J8A7564', caption: "Paradise Valley, Alberta" },
+      { src: 'images/gallery/landscape/Sunset at Quidi Vidi.JPG', title: 'Sunset at Quidi Vidi', caption: "Quidi Vidi, St. John's, Newfoundland" },
+      { src: 'images/gallery/landscape/_J8A0032.JPG', title: '_J8A0032', caption: "Mont Mégantic, Québéc" },
+      { src: 'images/gallery/landscape/_J8A9771.JPG', title: '_J8A9771', caption: ""},
+      { src: 'images/gallery/landscape/Grotto Mountain.JPG', title: 'Grotto Mountain', caption: "Cammore" },
+      { src: 'images/gallery/landscape/Peyto Lake.JPG', title: 'Peyto Lake', caption: "Cammore" },
+      { src: 'images/gallery/landscape/_J8A5283.JPG', title: '_J8A5283', caption: "St. Vincent's Beach, Newfoundland" },
+
+
 
 
     ]
@@ -51,8 +57,8 @@ var GALLERY_DATA = {
     title: 'Astro',
     description: 'Looking upward into deep time — capturing the stillness, motion, and vastness of the universe above.',
     photos: [
-      { src: 'images/gallery/astro/Our Moon.JPG', title: "Our Moon", location: "Space"},
-      { src: 'images/gallery/astro/The Orion Nebula.JPG', title: "The Orion Nebula (M42)", location: "Deep Space"},
+      { src: 'images/gallery/astro/Our Moon.JPG', title: "Our Moon", caption: "Space"},
+      { src: 'images/gallery/astro/The Orion Nebula.JPG', title: "The Orion Nebula (M42)", caption: "Deep Space"},
     ]
   },
 
@@ -60,9 +66,9 @@ var GALLERY_DATA = {
     title: 'Wildlife',
     description: 'Life in its untamed rhythm — quiet encounters, instinct, and the presence of animals in the wild.',
     photos: [
-      { src: "images/gallery/wildlife/Stellar's Jay.JPG", title: "Stellar's Jay", location: "Lake Louise, Alberta"},
-      { src: 'images/gallery/wildlife/Stout.JPG', title: "Eurasian Ermine (Stoat)", location: "Alberta"},
-      { src: 'images/gallery/wildlife/Northern Flicker.JPG', title: "Northern Flicker", location: "Alberta"},
+      { src: "images/gallery/wildlife/Stellar's Jay.JPG", title: "Stellar's Jay", caption: "Lake Louise, Alberta"},
+      { src: 'images/gallery/wildlife/Stout.JPG', title: "Eurasian Ermine (Stoat)", caption: "Alberta"},
+      { src: 'images/gallery/wildlife/Northern Flicker.JPG', title: "Northern Flicker", caption: "Alberta"},
 
     ]
   },
@@ -71,15 +77,16 @@ var GALLERY_DATA = {
     title: 'Portrait',
     description: 'Faces and stories — candid and composed portraits.',
     photos: [
-      // ADD PORTRAIT PHOTOS HERE
+      { src: 'images/gallery/portrait/My Grandmother.JPG', title: 'My Grandmother', caption: "Margarita Nikolaevna Beliaeva" },
+
     ]
   },
 
-  portrait: {
+  closeup: {
     title: 'Close-up',
     description: 'Details often overlooked — texture, form, and small moments seen at intimate range.',
     photos: [
-      { src: 'images/gallery/close-up/A Fragile Coexistence.JPG', title: 'A Fragile Coexistence', location: "Alberta" },
+      { src: 'images/gallery/close-up/A Fragile Coexistence.JPG', title: 'A Fragile Coexistence', caption: "Alberta" },
 
     ]
   },
@@ -96,7 +103,7 @@ var GALLERY_DATA = {
     title: 'Urban',
     description: 'City geometry, light, and movement.',
     photos: [
-      { src: 'images/gallery/urban/_J8A2778.JPG', title: "_J8A2778", location: "Magog, Québéc"},
+      { src: 'images/gallery/urban/_J8A2778.JPG', title: "_J8A2778", caption: "Magog, Québéc"},
     ]
   },
 };
@@ -104,40 +111,77 @@ var GALLERY_DATA = {
    END OF DATA SECTION
 ═══════════════════════════════════════════════════════════ */
 
-
-/* ─── Gallery engine (no need to edit below) ─────────────── */
+/* ═══════════════════════════════════════════════════════════
+   GALLERY ENGINE (Justified Gallery)
+═══════════════════════════════════════════════════════════ */
 (function () {
   'use strict';
-
-  // Disable right-click context menu on gallery images
-  document.addEventListener('contextmenu', function (e) {
-    if (e.target.closest('.masonry-item') || e.target.id === 'lbImg') {
-      e.preventDefault();
+ 
+  /* ── Layout config ── */
+  var TARGET_ROW_HEIGHT = 280;  // ideal row height in px
+  var GAP               = 6;    // gap between images in px
+  var LAST_ROW_MAX      = 0.75; // justify last row if it fills > 75% width
+ 
+  /* ── State ── */
+  var currentPhotos = [];
+  var currentIndex  = 0;
+ 
+  /* ════════════════════════════════════════════════════════
+     AUTO-DETECT IMAGE DIMENSIONS
+     Loads each image once via a hidden Image object,
+     caches naturalWidth/naturalHeight on the photo entry,
+     then calls the callback when all are ready.
+  ════════════════════════════════════════════════════════ */
+  function loadDimensions(photos, callback) {
+    if (!photos.length) { callback(); return; }
+ 
+    /* Skip photos that already have cached dimensions */
+    var pending = photos.filter(function (p) { return !p._w; });
+    if (!pending.length) { callback(); return; }
+ 
+    var loaded = 0;
+    function done() {
+      loaded++;
+      if (loaded === pending.length) callback();
     }
-  });
-
-  var currentPhotos = [];   // flat array of photos in current category
-  var currentIndex  = 0;    // lightbox current index
-
-  /* ── Build category nav ─────────────────────────────── */
+ 
+    pending.forEach(function (photo) {
+      var probe = new window.Image();
+      probe.onload = function () {
+        photo._w = probe.naturalWidth  || 3;  /* fallback avoids /0 */
+        photo._h = probe.naturalHeight || 2;
+        done();
+      };
+      probe.onerror = function () {
+        photo._w = 3;  /* broken image — use 3:2 fallback ratio */
+        photo._h = 2;
+        done();
+      };
+      probe.src = photo.src;
+    });
+  }
+ 
+  /* ════════════════════════════════════════════════════════
+     BUILD NAVIGATION + PANELS
+  ════════════════════════════════════════════════════════ */
   function buildNav() {
-    var nav   = document.getElementById('photoCatNav');
-    var panels = document.getElementById('galleryPanels');
-    if (!nav || !panels) return;
-
-    var categories = Object.keys(GALLERY_DATA);
-    if (!categories.length) return;
-
-    categories.forEach(function (key, i) {
+    var navEl    = document.getElementById('photoCatNav');
+    var panelsEl = document.getElementById('galleryPanels');
+    if (!navEl || !panelsEl) return;
+ 
+    var keys = Object.keys(GALLERY_DATA);
+    if (!keys.length) return;
+ 
+    keys.forEach(function (key, i) {
       var cat   = GALLERY_DATA[key];
       var count = cat.photos.length;
-
-      // Nav button
+ 
+      /* Nav button */
       var btn = document.createElement('button');
-      btn.className  = 'cat-btn' + (i === 0 ? ' active' : '');
+      btn.className   = 'cat-btn' + (i === 0 ? ' active' : '');
       btn.dataset.cat = key;
-      btn.innerHTML  = cat.title +
-        '<span class="cat-count">' + count + '</span>';
+      btn.innerHTML   = cat.title +
+        '<span class="cat-count">' + (count || '') + '</span>';
       btn.addEventListener('click', function () {
         document.querySelectorAll('.cat-btn').forEach(function (b) {
           b.classList.remove('active');
@@ -145,60 +189,179 @@ var GALLERY_DATA = {
         btn.classList.add('active');
         showPanel(key);
       });
-      nav.appendChild(btn);
-
-      // Panel
+      navEl.appendChild(btn);
+ 
+      /* Panel shell */
       var panel = document.createElement('div');
-      panel.className   = 'gallery-panel' + (i === 0 ? ' active' : '');
-      panel.id          = 'panel-' + key;
-      panel.innerHTML   = buildPanelHTML(key, cat);
-      panels.appendChild(panel);
+      panel.className = 'gallery-panel' + (i === 0 ? ' active' : '');
+      panel.id        = 'panel-' + key;
+      panel.innerHTML =
+        '<div class="gallery-panel-intro">' +
+          '<h2 class="gallery-panel-title">' + cat.title + '</h2>' +
+          '<p class="gallery-panel-desc">' + (cat.description || '') + '</p>' +
+        '</div>' +
+        '<div class="justified-grid" id="jgrid-' + key + '">' +
+          /* Loading indicator shown while dimensions are being probed */
+          '<div class="jg-loading">' +
+            '<span></span><span></span><span></span>' +
+          '</div>' +
+        '</div>';
+      panelsEl.appendChild(panel);
+ 
+      /* Probe dimensions then build */
+      loadDimensions(cat.photos, function () {
+        buildGrid(key, cat.photos);
+      });
     });
-
-    // Attach image load events after panels are in DOM
-    attachImageLoaders();
-
-    // Show first category
-    if (categories[0]) {
-      currentPhotos = GALLERY_DATA[categories[0]].photos;
-    }
+ 
+    if (keys[0]) currentPhotos = GALLERY_DATA[keys[0]].photos;
+ 
+    /* Re-layout on window resize */
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        keys.forEach(function (k) { buildGrid(k, GALLERY_DATA[k].photos); });
+      }, 150);
+    });
   }
-
-  /* ── Build panel HTML ────────────────────────────────── */
-  function buildPanelHTML(key, cat) {
-    var intro = '<div class="gallery-panel-intro">' +
-      '<h2 class="gallery-panel-title">' + cat.title + '</h2>' +
-      '<p class="gallery-panel-desc">' + (cat.description || '') + '</p>' +
-      '</div>';
-
-    if (!cat.photos.length) {
-      return intro +
+ 
+  /* ════════════════════════════════════════════════════════
+     BUILD A JUSTIFIED GRID
+  ════════════════════════════════════════════════════════ */
+  function buildGrid(key, photos) {
+    var grid = document.getElementById('jgrid-' + key);
+    if (!grid) return;
+ 
+    if (!photos.length) {
+      grid.innerHTML =
         '<div class="gallery-empty">' +
-          '<svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="28" rx="2" stroke-width="1"/>' +
-          '<circle cx="18" cy="22" r="4" stroke-width="1"/><path d="M6 32l9-8 6 6 6-6 9 8" stroke-width="1"/></svg>' +
+          '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">' +
+            '<rect x="6" y="10" width="36" height="28" rx="2"/>' +
+            '<circle cx="18" cy="22" r="4"/>' +
+            '<path d="M6 32l9-8 6 6 6-6 9 8"/>' +
+          '</svg>' +
           '<p>Photos coming soon.</p>' +
         '</div>';
+      return;
     }
-
-    var items = cat.photos.map(function (photo, idx) {
-      return '<div class="masonry-item" data-category="' + key +
-        '" data-idx="' + idx + '">' +
-        '<img src="' + photo.src + '" alt="' + (photo.title || '') +
-        '" loading="lazy" />' +
-        '<div class="masonry-overlay">' +
-          '<div class="masonry-title">' + (photo.title || '') + '</div>' +
-          '<div class="masonry-sub">' + (photo.location || cat.title) + '</div>' +
-        '</div>' +
-        '<div class="masonry-zoom">' +
-          '<svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>' +
-        '</div>' +
-        '</div>';
-    }).join('');
-
-    return intro + '<div class="masonry" id="masonry-' + key + '">' + items + '</div>';
+ 
+    var containerW = grid.offsetWidth || grid.parentElement.offsetWidth || 900;
+ 
+    /* ── Greedy row packing ── */
+    var rows   = [];
+    var rowBuf = [];
+    var rowSum = 0;
+ 
+    photos.forEach(function (photo, idx) {
+      /* Use cached dimensions; fall back to 3:2 if somehow missing */
+      var ar = (photo._w && photo._h) ? (photo._w / photo._h) : 1.5;
+      rowBuf.push({ photo: photo, ar: ar, idx: idx });
+      rowSum += ar;
+ 
+      var idealW = rowSum * TARGET_ROW_HEIGHT + GAP * (rowBuf.length - 1);
+      if (idealW >= containerW) {
+        rows.push({ items: rowBuf.slice(), sum: rowSum, last: false });
+        rowBuf = [];
+        rowSum = 0;
+      }
+    });
+    if (rowBuf.length) {
+      rows.push({ items: rowBuf.slice(), sum: rowSum, last: true });
+    }
+ 
+    /* ── Render rows ── */
+    grid.innerHTML = '';
+ 
+    rows.forEach(function (row) {
+      var totalGap = GAP * (row.items.length - 1);
+      var rowH;
+ 
+      if (row.last) {
+        rowH = TARGET_ROW_HEIGHT;
+        var partialW = row.sum * TARGET_ROW_HEIGHT + totalGap;
+        if (partialW >= containerW * LAST_ROW_MAX) {
+          rowH = (containerW - totalGap) / row.sum;
+        }
+      } else {
+        rowH = (containerW - totalGap) / row.sum;
+      }
+ 
+      var rowEl = document.createElement('div');
+      rowEl.style.cssText =
+        'display:flex; gap:' + GAP + 'px; margin-bottom:' + GAP + 'px;';
+ 
+      row.items.forEach(function (item) {
+        var imgW = Math.floor(rowH * item.ar);
+ 
+        var wrap = document.createElement('div');
+        wrap.className        = 'jg-item';
+        wrap.dataset.idx      = item.idx;
+        wrap.dataset.category = key;
+        wrap.style.cssText =
+          'position:relative; overflow:hidden; cursor:zoom-in; flex-shrink:0;' +
+          'width:' + imgW + 'px; height:' + Math.floor(rowH) + 'px;' +
+          'background:var(--surface);';
+ 
+        var img = document.createElement('img');
+        img.src       = item.photo.src;
+        img.alt       = item.photo.title || '';
+        img.loading   = 'lazy';
+        img.draggable = false;
+        img.style.cssText =
+          'width:100%; height:100%; object-fit:cover; display:block;' +
+          'transition:transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.4s;' +
+          '-webkit-user-drag:none; user-select:none; pointer-events:none;';
+ 
+        img.addEventListener('error', function () {
+          wrap.innerHTML =
+            '<div style="width:100%;height:100%;display:flex;align-items:center;' +
+            'justify-content:center;">' +
+              '<svg width="28" viewBox="0 0 48 48" fill="none" stroke="#c9a96e" stroke-width="0.8">' +
+                '<rect x="6" y="10" width="36" height="28" rx="2"/>' +
+                '<circle cx="18" cy="22" r="4"/><path d="M6 32l9-8 6 6 6-6 9 8"/>' +
+              '</svg></div>';
+        });
+ 
+        /* Overlay */
+        var overlay = document.createElement('div');
+        overlay.style.cssText =
+          'position:absolute; inset:0; pointer-events:none;' +
+          'display:flex; flex-direction:column; justify-content:flex-end; padding:0.9rem;' +
+          'background:linear-gradient(0deg,rgba(0,0,0,0.72) 0%,transparent 55%);' +
+          'opacity:0; transform:translateY(6px);' +
+          'transition:opacity 0.3s, transform 0.3s;';
+        overlay.innerHTML =
+          '<div class="masonry-title">' + (item.photo.title    || '') + '</div>' +
+          '<div class="masonry-sub">'   + (item.photo.caption || '') + '</div>';
+ 
+        /* Zoom icon */
+        var zoom = document.createElement('div');
+        zoom.style.cssText =
+          'position:absolute; top:0.65rem; right:0.65rem; pointer-events:none;' +
+          'width:26px; height:26px;' +
+          'border:1px solid rgba(255,255,255,0.28);' +
+          'display:flex; align-items:center; justify-content:center;' +
+          'opacity:0; transition:opacity 0.3s;';
+        zoom.innerHTML =
+          '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" ' +
+          'style="width:11px;">' +
+            '<path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>' +
+          '</svg>';
+ 
+        wrap.appendChild(img);
+        wrap.appendChild(overlay);
+        wrap.appendChild(zoom);
+        rowEl.appendChild(wrap);
+      });
+ 
+      grid.appendChild(rowEl);
+    });
   }
-
-  /* ── Switch active panel ─────────────────────────────── */
+ 
+  /* ════════════════════════════════════════════════════════
+     PANEL SWITCHING
+  ════════════════════════════════════════════════════════ */
   function showPanel(key) {
     document.querySelectorAll('.gallery-panel').forEach(function (p) {
       p.classList.remove('active');
@@ -207,57 +370,65 @@ var GALLERY_DATA = {
     if (panel) {
       panel.classList.add('active');
       currentPhotos = GALLERY_DATA[key].photos;
+      /* Re-layout in case container was hidden before */
+      setTimeout(function () { buildGrid(key, GALLERY_DATA[key].photos); }, 50);
     }
   }
-
-  /* ── Image load handlers ─────────────────────────────── */
-  function attachImageLoaders() {
-    document.querySelectorAll('.masonry-item img').forEach(function (img) {
-      if (img.complete) {
-        img.classList.add('loaded');
-      } else {
-        img.addEventListener('load', function () {
-          img.classList.add('loaded');
-        });
-        img.addEventListener('error', function () {
-          // Show placeholder on broken image
-          var item = img.closest('.masonry-item');
-          if (item) {
-            img.style.display = 'none';
-            var ph = document.createElement('div');
-            ph.className = 'masonry-placeholder';
-            ph.innerHTML = '<svg viewBox="0 0 48 48" fill="none" stroke="#c9a96e">' +
-              '<rect x="6" y="10" width="36" height="28" rx="2" stroke-width="0.8"/>' +
-              '<circle cx="18" cy="22" r="4" stroke-width="0.8"/>' +
-              '<path d="M6 32l9-8 6 6 6-6 9 8" stroke-width="0.8"/></svg>';
-            item.insertBefore(ph, item.querySelector('.masonry-overlay'));
-          }
-        });
-      }
-    });
-  }
-
-  /* ── Click to open lightbox ──────────────────────────── */
-  document.addEventListener('click', function (e) {
-    var item = e.target.closest('.masonry-item');
+ 
+  /* ════════════════════════════════════════════════════════
+     HOVER (event delegation — no per-element listeners)
+  ════════════════════════════════════════════════════════ */
+  document.addEventListener('mouseover', function (e) {
+    var item = e.target.closest('.jg-item');
     if (!item) return;
-    var catKey = item.dataset.category;
-    var idx    = parseInt(item.dataset.idx, 10);
-    if (catKey && GALLERY_DATA[catKey]) {
-      currentPhotos = GALLERY_DATA[catKey].photos;
-      openLightbox(idx);
+    var img = item.querySelector('img');
+    var ov  = item.children[1];
+    var zm  = item.children[2];
+    if (img) { img.style.transform = 'scale(1.04)'; img.style.filter = 'brightness(0.6)'; }
+    if (ov)  { ov.style.opacity = '1';  ov.style.transform = 'translateY(0)'; }
+    if (zm)  { zm.style.opacity = '1'; }
+  });
+ 
+  document.addEventListener('mouseout', function (e) {
+    var item = e.target.closest('.jg-item');
+    if (!item || item.contains(e.relatedTarget)) return;
+    var img = item.querySelector('img');
+    var ov  = item.children[1];
+    var zm  = item.children[2];
+    if (img) { img.style.transform = 'scale(1)'; img.style.filter = 'brightness(1)'; }
+    if (ov)  { ov.style.opacity = '0';  ov.style.transform = 'translateY(6px)'; }
+    if (zm)  { zm.style.opacity = '0'; }
+  });
+ 
+  /* ════════════════════════════════════════════════════════
+     DISABLE RIGHT-CLICK SAVE
+  ════════════════════════════════════════════════════════ */
+  document.addEventListener('contextmenu', function (e) {
+    if (e.target.closest('.jg-item') || e.target.id === 'lbImg') {
+      e.preventDefault();
     }
   });
-
-  /* ─────────────────────────────────────────────────────
+ 
+  /* ════════════════════════════════════════════════════════
      LIGHTBOX
-  ───────────────────────────────────────────────────── */
+  ════════════════════════════════════════════════════════ */
   var lb        = document.getElementById('lightbox');
   var lbImg     = document.getElementById('lbImg');
   var lbTitle   = document.getElementById('lbTitle');
   var lbMeta    = document.getElementById('lbMeta');
   var lbCounter = document.getElementById('lbCounter');
-
+ 
+  document.addEventListener('click', function (e) {
+    var item = e.target.closest('.jg-item');
+    if (!item) return;
+    var key = item.dataset.category;
+    var idx = parseInt(item.dataset.idx, 10);
+    if (key && GALLERY_DATA[key]) {
+      currentPhotos = GALLERY_DATA[key].photos;
+      openLightbox(idx);
+    }
+  });
+ 
   function openLightbox(idx) {
     if (!lb || !currentPhotos.length) return;
     currentIndex = idx;
@@ -265,31 +436,28 @@ var GALLERY_DATA = {
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
-
+ 
   function closeLightbox() {
     if (!lb) return;
     lb.classList.remove('open');
     document.body.style.overflow = '';
-    // Clear src to stop loading
     setTimeout(function () {
       if (!lb.classList.contains('open') && lbImg) lbImg.src = '';
     }, 350);
   }
-
+ 
   function updateLightbox() {
     var photo = currentPhotos[currentIndex];
     if (!photo || !lbImg) return;
-
-    lbImg.src = '';  // force reload (browser cache handles it)
+    lbImg.src = '';
     lbImg.alt = photo.title || '';
     lbImg.src = photo.src;
-
-    if (lbTitle)   lbTitle.textContent   = photo.title || '';
-    if (lbMeta)    lbMeta.textContent    = photo.location || '';
+    if (lbTitle)   lbTitle.textContent   = photo.title    || '';
+    if (lbMeta)    lbMeta.textContent    = photo.caption || '';
     if (lbCounter) lbCounter.textContent =
       (currentIndex + 1) + ' / ' + currentPhotos.length;
   }
-
+ 
   function prev() {
     currentIndex = (currentIndex - 1 + currentPhotos.length) % currentPhotos.length;
     updateLightbox();
@@ -298,29 +466,21 @@ var GALLERY_DATA = {
     currentIndex = (currentIndex + 1) % currentPhotos.length;
     updateLightbox();
   }
-
-  /* ── Wire up lightbox controls ───────────────────────── */
+ 
   if (lb) {
     var btnClose = document.getElementById('lbClose');
     var btnPrev  = document.getElementById('lbPrev');
     var btnNext  = document.getElementById('lbNext');
-
     if (btnClose) btnClose.addEventListener('click', closeLightbox);
     if (btnPrev)  btnPrev.addEventListener('click',  function (e) { e.stopPropagation(); prev(); });
     if (btnNext)  btnNext.addEventListener('click',  function (e) { e.stopPropagation(); next(); });
-
-    lb.addEventListener('click', function (e) {
-      if (e.target === lb) closeLightbox();
-    });
-
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLightbox(); });
     document.addEventListener('keydown', function (e) {
       if (!lb.classList.contains('open')) return;
       if (e.key === 'Escape')     closeLightbox();
       if (e.key === 'ArrowLeft')  prev();
       if (e.key === 'ArrowRight') next();
     });
-
-    // Touch swipe support
     var touchStartX = 0;
     lb.addEventListener('touchstart', function (e) {
       touchStartX = e.touches[0].clientX;
@@ -330,16 +490,37 @@ var GALLERY_DATA = {
       if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
     }, { passive: true });
   }
+ 
+  /* ════════════════════════════════════════════════════════
+     LOADING INDICATOR STYLES  (injected once)
+  ════════════════════════════════════════════════════════ */
+  var style = document.createElement('style');
+  style.textContent =
+    '.jg-loading{display:flex;align-items:center;justify-content:center;' +
+    'gap:6px;padding:4rem 0;}' +
+    '.jg-loading span{display:block;width:6px;height:6px;border-radius:50%;' +
+    'background:var(--gold-dim);animation:jgPulse 1.2s ease-in-out infinite;}' +
+    '.jg-loading span:nth-child(2){animation-delay:0.2s;}' +
+    '.jg-loading span:nth-child(3){animation-delay:0.4s;}' +
+    '@keyframes jgPulse{0%,100%{opacity:0.2;transform:scale(0.8);}' +
+    '50%{opacity:1;transform:scale(1.2);}}' +
 
-  /* ── Init on DOM ready ───────────────────────────────── */
-  function init() {
+    /* Single column on mobile — justified layout becomes a simple vertical stack */
+    '@media(max-width:640px){' +
+    '.justified-grid{display:flex!important;flex-direction:column!important;gap:6px!important;}' +
+    '.justified-grid>div{display:flex!important;flex-direction:column!important;gap:6px!important;}' +
+    '.jg-item{width:100%!important;height:auto!important;aspect-ratio:unset!important;}' +
+    '.jg-item img{height:auto!important;min-height:200px;object-fit:cover;}' +
+    '}';
+  document.head.appendChild(style);
+ 
+  /* ════════════════════════════════════════════════════════
+     INIT
+  ════════════════════════════════════════════════════════ */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', buildNav);
+  } else {
     buildNav();
   }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-
+ 
 })();
