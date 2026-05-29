@@ -37,15 +37,19 @@ var GALLERY_DATA = {
       { src: 'images/gallery/landscape/Waterton.JPG', title: 'Waterton', caption: "Waterton, Alberta" },
       { src: 'images/gallery/landscape/The Tree of Life.JPG', title: 'The Tree of Life', caption: "Alberta" },
       { src: 'images/gallery/landscape/_J8A5115.JPG', title: '_J8A5115', caption: "Newfoundland" },
-      { src: 'images/gallery/landscape/_J8A7547.JPG', title: 'Giant Steps Waterfall', caption: "Paradise Valley, Alberta" },
+      { src: 'images/gallery/landscape/_J8A7547.JPG', title: 'Giant Steps', caption: "Paradise Valley, Alberta" },
       { src: 'images/gallery/landscape/The Vein of Fire.JPG', title: 'The Vein of Fire', caption: "Johnston Canyon, Banff" },
       { src: 'images/gallery/landscape/_J8A7564.JPG', title: '_J8A7564', caption: "Paradise Valley, Alberta" },
       { src: 'images/gallery/landscape/Sunset at Quidi Vidi.JPG', title: 'Sunset at Quidi Vidi', caption: "Quidi Vidi, St. John's, Newfoundland" },
       { src: 'images/gallery/landscape/_J8A0032.JPG', title: '_J8A0032', caption: "Mont Mégantic, Québéc" },
-      { src: 'images/gallery/landscape/_J8A9771.JPG', title: '_J8A9771', caption: ""},
+      { src: 'images/gallery/landscape/Fading into Mist.JPG', title: 'Fading into Mist', caption: "Kootenay National Park, BC"},
       { src: 'images/gallery/landscape/Grotto Mountain.JPG', title: 'Grotto Mountain', caption: "Cammore" },
-      { src: 'images/gallery/landscape/Peyto Lake.JPG', title: 'Peyto Lake', caption: "Cammore" },
+      { src: 'images/gallery/landscape/Peyto Lake.JPG', title: 'Peyto Lake', caption: "Icefields Parkway" },
       { src: 'images/gallery/landscape/_J8A5283.JPG', title: '_J8A5283', caption: "St. Vincent's Beach, Newfoundland" },
+      { src: 'images/gallery/landscape/Where Silence Rests.JPG', title: 'Where Silence Rests', caption: "Trinity Bay, Newfoundland" },
+      { src: 'images/gallery/landscape/Stormwatch.JPG', title: 'Stormwatch', caption: "Trinity Bay, Newfoundland" },
+      { src: 'images/gallery/landscape/The Enchanted Grove.JPG', title: 'The Enchanted Grove', caption: "Orford, Québéc" },
+
 
 
 
