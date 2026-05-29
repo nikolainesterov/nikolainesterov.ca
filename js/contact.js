@@ -100,7 +100,7 @@ window.nnCaptchaExpired = function () {
     captchaContainer.style.display    = 'block';
     /* Trigger transition on next frame */
     requestAnimationFrame(function () {
-      captchaContainer.style.maxHeight = '120px';
+      captchaContainer.style.maxHeight = '200px';
       captchaContainer.style.marginBottom = '1rem';
     });
   }

@@ -12,6 +12,16 @@
   <link rel="stylesheet" href="css/home.css" />
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <style>
+    /* Scale reCAPTCHA to fit narrow screens */
+    @media (max-width: 400px) {
+      #captchaContainer {
+        transform-origin: left top;
+        transform: scale(0.85);
+        height: 65px; /* compensate for the scale so no gap below */
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -509,7 +519,7 @@
 
         <!-- Google reCAPTCHA -->
         <div id="captchaContainer" style="display:none; margin-bottom:1rem;
-             max-height:0; overflow:hidden; transition:max-height 0.4s ease, margin 0.4s ease;">
+             max-height:0; overflow:visible; transition:max-height 0.4s ease, margin 0.4s ease;">
           <div class="g-recaptcha"
                data-sitekey="6LdiaPcsAAAAAKJT6uSJX7dYJXjqT6fj_jpTrZ8C"
                data-theme="dark"
