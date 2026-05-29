@@ -507,11 +507,15 @@
         </div>
         <div class="form-message" id="formMessage"></div>
 
-        <!-- Google reCAPTCHA — replace YOUR_SITE_KEY with your actual site key -->
-        <div class="g-recaptcha" 
-             data-sitekey="6LdiaPcsAAAAAKJT6uSJX7dYJXjqT6fj_jpTrZ8C"
-             data-theme="dark"
-             style="margin-bottom: 1rem;">
+        <!-- Google reCAPTCHA -->
+        <div id="captchaContainer" style="display:none; margin-bottom:1rem;
+             max-height:0; overflow:hidden; transition:max-height 0.4s ease, margin 0.4s ease;">
+          <div class="g-recaptcha"
+               data-sitekey="6LdiaPcsAAAAAKJT6uSJX7dYJXjqT6fj_jpTrZ8C"
+               data-theme="dark"
+               data-callback="nnCaptchaSuccess"
+               data-expired-callback="nnCaptchaExpired">
+          </div>
         </div>
 
         <button type="submit" class="form-submit">Send Message</button>
