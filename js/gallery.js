@@ -49,6 +49,7 @@ var GALLERY_DATA = {
       { src: 'images/gallery/landscape/Where Silence Rests.JPG', title: 'Where Silence Rests', caption: "Trinity Bay, Newfoundland" },
       { src: 'images/gallery/landscape/Stormwatch.JPG', title: 'Stormwatch', caption: "Trinity Bay, Newfoundland" },
       { src: 'images/gallery/landscape/The Enchanted Grove.JPG', title: 'The Enchanted Grove', caption: "Orford, Québéc" },
+      { src: 'images/gallery/landscape/Endless Journey.JPG', title: 'Endless Journey', caption: "Canadian Pacific Railway" },
 
 
 
