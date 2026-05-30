@@ -73,6 +73,7 @@ var GALLERY_DATA = {
       { src: "images/gallery/wildlife/Stellar's Jay.JPG", title: "Stellar's Jay", caption: "Lake Louise, Alberta"},
       { src: 'images/gallery/wildlife/Stout.JPG', title: "Eurasian Ermine (Stoat)", caption: "Alberta"},
       { src: 'images/gallery/wildlife/Northern Flicker.JPG', title: "Northern Flicker", caption: "Alberta"},
+      { src: 'images/gallery/wildlife/Baby Bunny.JPG', title: "Baby Bunny", caption: "Alberta"},
 
     ]
   },
@@ -82,6 +83,19 @@ var GALLERY_DATA = {
     description: 'Faces and stories — candid and composed portraits.',
     photos: [
       { src: 'images/gallery/portrait/My Grandmother.jpg', title: 'My Grandmother', caption: "Margarita Nikolaevna Beliaeva" },
+      { src: 'images/gallery/portrait/Jerry 1.jpg', title: 'Jerry Liao', caption: "" },
+      { src: 'images/gallery/portrait/Nikolai Portrait-4.jpg', title: 'Nikolai Nesterov', caption: "Self Portrait" },
+      { src: 'images/gallery/portrait/Jerry 2.jpg', title: 'Jerry Liao', caption: "" },
+      { src: 'images/gallery/portrait/Oksana Yaremchuk.jpg', title: 'Oksana Yaremchuk', caption: "" },
+      { src: 'images/gallery/portrait/Nikolai Portrait-6.jpg', title: 'Nikolai Nesterov', caption: "Self Portrait" },
+      { src: 'images/gallery/portrait/Tatiana.jpg', title: 'Tatiana', caption: "" },
+      { src: 'images/about/portrait.jpg', title: 'Nikolai Nesterov', caption: "Self Portrait" },
+      { src: 'images/gallery/portrait/Nikolai Portrait-1.jpg', title: 'Nikolai Nesterov', caption: "Self Portrait" },
+      { src: 'images/gallery/portrait/Nikolai Portrait-2.jpg', title: 'Nikolai Nesterov', caption: "Self Portrait" },
+      { src: 'images/gallery/portrait/Nikolai Portrait-3.jpg', title: 'Nikolai Nesterov', caption: "Self Portrait" },
+      { src: 'images/gallery/portrait/Nikolai Portrait-5.jpg', title: 'Nikolai Nesterov', caption: "Self Portrait" },
+
+
 
     ]
   },
