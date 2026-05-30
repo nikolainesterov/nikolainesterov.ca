@@ -91,7 +91,7 @@ var GALLERY_DATA = {
       { src: 'images/gallery/portrait/Oksana Yaremchuk.JPG', title: 'Oksana Yaremchuk', caption: "" },
       { src: 'images/gallery/portrait/Nikolai Portrait-6.JPG', title: 'Nikolai Nesterov', caption: "Self Portrait" },
       { src: 'images/gallery/portrait/Tatiana.JPG', title: 'Tatiana', caption: "" },
-      { src: 'images/about/portrait.JPG', title: 'Nikolai Nesterov', caption: "Self Portrait" },
+      { src: 'images/about/portrait.jpg', title: 'Nikolai Nesterov', caption: "Self Portrait" },
       { src: 'images/gallery/portrait/Nikolai Portrait-1.JPG', title: 'Nikolai Nesterov', caption: "Self Portrait" },
       { src: 'images/gallery/portrait/Nikolai Portrait-2.JPG', title: 'Nikolai Nesterov', caption: "Self Portrait" },
       { src: 'images/gallery/portrait/Nikolai Portrait-3.JPG', title: 'Nikolai Nesterov', caption: "Self Portrait" },
