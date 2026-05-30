@@ -70,10 +70,12 @@ var GALLERY_DATA = {
     title: 'Wildlife',
     description: 'Life in its untamed rhythm — quiet encounters, instinct, and the presence of animals in the wild.',
     photos: [
-      { src: "images/gallery/wildlife/Stellar's Jay.JPG", title: "Stellar's Jay", caption: "Lake Louise, Alberta"},
-      { src: 'images/gallery/wildlife/Stout.JPG', title: "Eurasian Ermine (Stoat)", caption: "Alberta"},
-      { src: 'images/gallery/wildlife/Northern Flicker.JPG', title: "Northern Flicker", caption: "Alberta"},
-      { src: 'images/gallery/wildlife/Baby Bunny.JPG', title: "Baby Bunny", caption: "Alberta"},
+      { src: "images/gallery/wildlife/Stellar's Jay.JPG", title: "Stellar's Jay", caption: "Lake Louise, "},
+      { src: 'images/gallery/wildlife/Stout.JPG', title: "Eurasian Ermine (Stoat)", caption: ""},
+      { src: 'images/gallery/wildlife/Northern Flicker.JPG', title: "Northern Flicker", caption: ""},
+      { src: 'images/gallery/wildlife/Baby Bunny.JPG', title: "Baby Bunny", caption: ""},
+      { src: 'images/gallery/wildlife/Mallard.JPG', title: "Mallard", caption: ""},
+
 
     ]
   },
