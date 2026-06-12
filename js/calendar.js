@@ -31,7 +31,7 @@ var EVENTS = [
     venue:   "Mamdani Opera Centre",
     city:    'Calgary, Alberta',
     image:   'images/events/peaks+prairies 5th anniversary/cover.jpg',
-    link:    'https://www.livefromtherockies.ca/events/peaks-prairies-ensemble-5th-anniversary-concert',
+    link:    'https://www.calgaryclassical.ca/event/1516-Peaks-+-Prairies-Ensemble-5th-Anniversary-Concert',
     upcoming: true                  // set false once event has passed
   },
 

@@ -95,11 +95,7 @@ var GALLERY_DATA = {
       { src: 'images/about/portrait.jpg', title: 'Nikolai Nesterov', caption: "Self Portrait" },
       { src: 'images/gallery/portrait/Nikolai Portrait-1.JPG', title: 'Nikolai Nesterov', caption: "Self Portrait" },
       { src: 'images/gallery/portrait/Nikolai Portrait-2.JPG', title: 'Nikolai Nesterov', caption: "Self Portrait" },
-      { src: 'images/gallery/portrait/Nikolai Portrait-3.JPG', title: 'Nikolai Nesterov', caption: "Self Portrait" },
       { src: 'images/gallery/portrait/Nikolai Portrait-5.JPG', title: 'Nikolai Nesterov', caption: "Self Portrait" },
-
-
-
     ]
   },
 
