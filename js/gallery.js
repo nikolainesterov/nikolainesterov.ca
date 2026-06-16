@@ -76,6 +76,9 @@ var GALLERY_DATA = {
       { src: 'images/gallery/wildlife/Northern Flicker.JPG', title: "Northern Flicker", caption: ""},
       { src: 'images/gallery/wildlife/Baby Bunny.JPG', title: "Baby Bunny", caption: ""},
       { src: 'images/gallery/wildlife/Mallard.JPG', title: "Mallard", caption: ""},
+      { src: 'images/gallery/wildlife/Yellow-headed Blackbird.JPG', title: "Yellow-headed Blackbird", caption: ""},
+      { src: 'images/gallery/wildlife/Cedar Waxwing.JPG', title: "Cedar Waxwing", caption: ""},
+
 
 
     ]
