@@ -115,6 +115,10 @@
       };
     });
 
+    /* Show pulsing-dot loading indicator while dimensions are probed */
+    document.getElementById('pgGrid').innerHTML =
+      '<div class="jg-loading"><span></span><span></span><span></span></div>';
+
     loadDimensions(photos, function () {
       buildGrid();
     });
@@ -492,6 +496,22 @@
     var dx = e.changedTouches[0].clientX - touchStartX;
     if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
   }, { passive: true });
+
+  /* ════════════════════════════════════════════════════════
+     LOADING INDICATOR STYLES (injected once)
+  ════════════════════════════════════════════════════════ */
+  var pgStyle = document.createElement('style');
+  pgStyle.textContent =
+    '.jg-loading{display:flex;align-items:center;justify-content:center;' +
+    'gap:6px;padding:4rem 0;flex-direction:row;}' +
+    '.jg-loading span{display:block;width:6px;height:6px;border-radius:50%;' +
+    'background:var(--gold-dim);animation:jgPulse 1.2s ease-in-out infinite;}' +
+    '.jg-loading span:nth-child(2){animation-delay:0.2s;}' +
+    '.jg-loading span:nth-child(3){animation-delay:0.4s;}' +
+    '@keyframes jgPulse{0%,100%{opacity:0.2;transform:scale(0.8);}' +
+    '50%{opacity:1;transform:scale(1.2);}}' +
+    '@media(max-width:640px){.jg-loading{flex-direction:row!important;}}';
+  document.head.appendChild(pgStyle);
 
   /* ════════════════════════════════════════════════════════
      GO

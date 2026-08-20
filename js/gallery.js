@@ -531,6 +531,7 @@ var GALLERY_DATA = {
     '.justified-grid>div{display:flex!important;flex-direction:column!important;gap:6px!important;}' +
     '.jg-item{width:100%!important;height:auto!important;aspect-ratio:unset!important;}' +
     '.jg-item img{height:auto!important;min-height:200px;object-fit:cover;}' +
+    '.jg-loading{flex-direction:row!important;}' +
     '}';
   document.head.appendChild(style);
  
