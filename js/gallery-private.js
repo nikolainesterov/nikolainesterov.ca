@@ -82,7 +82,7 @@
     document.getElementById('pgYear').textContent = new Date().getFullYear();
 
     /* Hero */
-    document.title = data.title + ' — Private Gallery — Nikolai Nesterov';
+    document.title = data.title + ' - Private Gallery';
     document.getElementById('pgTitle').textContent = data.title;
 
     if (data.date) {
