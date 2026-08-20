@@ -1,0 +1,267 @@
+/* ═══════════════════════════════════════════════════════════
+   PRIVATE CLIENT GALLERY — CSS
+   Extends main.css + photography.css (justified grid, lightbox)
+═══════════════════════════════════════════════════════════ */
+
+.pg-body { background: var(--bg); }
+
+/* ─── HERO ──────────────────────────────────────────────── */
+.pg-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; text-align: center;
+  padding: 6rem 2rem 4rem;
+}
+.pg-hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(180deg, #14120c 0%, #0d0d0d 100%);
+}
+.pg-hero-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+  object-position: center 30%;
+}
+.pg-hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 30%, rgba(201,169,110,0.08) 0%, transparent 65%),
+    linear-gradient(180deg, rgba(13,13,13,0.35) 0%, rgba(13,13,13,0.25) 40%, rgba(13,13,13,0.92) 100%);
+}
+.pg-hero-content { position: relative; z-index: 2; max-width: 720px; }
+.pg-hero-date {
+  font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.25rem;
+}
+.pg-hero-title {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 300; line-height: 1.1; color: var(--text);
+  text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+.pg-hero-credit {
+  margin-top: 1.5rem;
+  font-size: 0.85rem; color: var(--text-muted);
+}
+.pg-credit-link {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--gold-dim);
+  transition: text-decoration-color 0.3s;
+}
+.pg-credit-link:hover { text-decoration-color: var(--gold); }
+
+/* ─── TOOLBAR ───────────────────────────────────────────── */
+.pg-toolbar {
+  position: sticky; top: 0; z-index: 90;
+  background: rgba(13,13,13,0.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+.pg-toolbar-inner {
+  max-width: 1440px; margin: 0 auto;
+  padding: 1rem 4rem;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem;
+}
+.pg-fav-toggle {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text-muted); padding: 0.6rem 1.1rem;
+  font-family: var(--sans); font-size: 0.72rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  cursor: pointer; transition: 0.3s;
+}
+.pg-fav-toggle svg { width: 14px; stroke: currentColor; }
+.pg-fav-toggle:hover { border-color: var(--gold-dim); color: var(--gold); }
+.pg-fav-toggle.active {
+  border-color: var(--gold); color: var(--gold); background: var(--gold-glow);
+}
+.pg-fav-toggle.active svg { fill: var(--gold); }
+.pg-fav-count {
+  font-size: 0.65rem; color: var(--text-dim);
+  background: var(--surface); padding: 0.05rem 0.4rem;
+}
+.pg-fav-toggle.active .pg-fav-count { color: var(--gold); }
+
+/* ─── MAIN / STATES ─────────────────────────────────────── */
+.pg-main { min-height: 40vh; }
+.pg-container { padding: 3rem 4rem 6rem; max-width: 1440px; margin: 0 auto; }
+
+.pg-state {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; padding: 6rem 2rem; color: var(--text-dim);
+}
+.pg-state svg { margin-bottom: 1.5rem; opacity: 0.6; }
+.pg-state-title {
+  font-family: var(--serif); font-size: 1.5rem; color: var(--text);
+  margin-bottom: 0.75rem;
+}
+.pg-state-sub {
+  font-size: 0.88rem; color: var(--text-muted); max-width: 400px;
+  line-height: 1.7; margin-bottom: 2rem;
+}
+.pg-spinner {
+  width: 28px; height: 28px;
+  border: 2px solid var(--border);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: pgSpin 0.8s linear infinite;
+  margin-bottom: 1.25rem;
+}
+@keyframes pgSpin { to { transform: rotate(360deg); } }
+
+.pg-empty-favs {
+  text-align: center; padding: 4rem 2rem; color: var(--text-dim);
+}
+.pg-empty-favs p { font-family: var(--serif); font-size: 1.05rem; }
+
+/* ─── GRID ITEM ADDITIONS (hover download + favorite) ──── */
+.jg-item .pg-item-actions {
+  position: absolute; top: 0.6rem; left: 0.6rem; right: 0.6rem;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  z-index: 2; pointer-events: none;
+}
+.pg-item-btn {
+  width: 30px; height: 30px;
+  background: rgba(13,13,13,0.55);
+  border: 1px solid rgba(255,255,255,0.18);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; pointer-events: auto;
+  opacity: 0; transition: opacity 0.3s, background 0.3s, border-color 0.3s;
+  backdrop-filter: blur(4px);
+}
+.jg-item:hover .pg-item-btn { opacity: 1; }
+.pg-item-btn svg { width: 14px; stroke: #fff; fill: none; stroke-width: 1.6; }
+.pg-item-btn:hover { border-color: var(--gold); background: rgba(13,13,13,0.8); }
+.pg-item-btn.pg-fav-btn.active {
+  opacity: 1; border-color: var(--gold); background: rgba(13,13,13,0.8);
+}
+.pg-item-btn.pg-fav-btn.active svg { fill: var(--gold); stroke: var(--gold); }
+
+/* Small download dropdown on grid item */
+.pg-grid-download-menu {
+  position: absolute; top: 2.6rem; right: 0.6rem; z-index: 3;
+  background: var(--bg2); border: 1px solid var(--border);
+  min-width: 150px; display: none; flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.pg-grid-download-menu.open { display: flex; }
+.pg-grid-download-menu button {
+  background: transparent; border: none; text-align: left;
+  padding: 0.65rem 0.9rem; font-size: 0.76rem; color: var(--text-muted);
+  cursor: pointer; font-family: var(--sans); transition: 0.2s;
+}
+.pg-grid-download-menu button:hover { background: var(--surface); color: var(--gold); }
+.pg-grid-download-menu button + button { border-top: 1px solid var(--border); }
+
+/* ─── LIGHTBOX ADDITIONS ────────────────────────────────── */
+.pg-lb-actions {
+  display: flex; align-items: center; gap: 0.75rem; margin-top: 0.5rem;
+}
+.pg-lb-fav {
+  width: 34px; height: 34px;
+  background: transparent; border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted); cursor: pointer; transition: 0.3s;
+}
+.pg-lb-fav svg { width: 15px; }
+.pg-lb-fav:hover { border-color: var(--gold-dim); color: var(--gold); }
+.pg-lb-fav.active { border-color: var(--gold); color: var(--gold); }
+.pg-lb-fav.active svg { fill: var(--gold); }
+
+.pg-download-menu-wrap { position: relative; }
+.pg-lb-download {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: transparent; border: 1px solid var(--gold-dim);
+  color: var(--gold); padding: 0.55rem 1.1rem;
+  font-family: var(--sans); font-size: 0.72rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  cursor: pointer; transition: 0.3s;
+}
+.pg-lb-download svg { width: 14px; }
+.pg-lb-download:hover { background: var(--gold-glow); border-color: var(--gold); }
+
+.pg-download-menu {
+  position: absolute; bottom: calc(100% + 8px); left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg2); border: 1px solid var(--border);
+  min-width: 190px; display: none; flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 10;
+}
+.pg-download-menu.open { display: flex; }
+.pg-download-menu button {
+  background: transparent; border: none; text-align: left;
+  padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-muted);
+  cursor: pointer; font-family: var(--sans); transition: 0.2s;
+}
+.pg-download-menu button:hover { background: var(--surface); color: var(--gold); }
+.pg-download-menu button + button { border-top: 1px solid var(--border); }
+
+/* ─── DOWNLOAD-ALL MODAL ─────────────────────────────────── */
+.pg-modal-overlay {
+  position: fixed; inset: 0; z-index: 950;
+  background: rgba(6,6,6,0.85);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  backdrop-filter: blur(4px); padding: 1.5rem;
+}
+.pg-modal-overlay.open { opacity: 1; pointer-events: all; }
+.pg-modal {
+  position: relative;
+  background: var(--bg2); border: 1px solid var(--border);
+  max-width: 520px; width: 100%;
+  padding: 2.75rem 2.5rem;
+  transform: translateY(16px); transition: transform 0.35s var(--ease);
+}
+.pg-modal-overlay.open .pg-modal { transform: translateY(0); }
+.pg-modal-close {
+  position: absolute; top: 1.25rem; right: 1.25rem;
+  width: 32px; height: 32px; background: transparent;
+  border: 1px solid var(--border); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.3s;
+}
+.pg-modal-close:hover { border-color: var(--gold); }
+.pg-modal-close svg { width: 14px; stroke: var(--text-muted); fill: none; stroke-width: 1.5; }
+.pg-modal-label {
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.75rem;
+}
+.pg-modal-title {
+  font-family: var(--serif); font-size: 1.7rem; font-weight: 300;
+  color: var(--text); margin-bottom: 2rem;
+}
+.pg-modal-options { display: flex; flex-direction: column; gap: 0.9rem; }
+.pg-modal-option {
+  display: block; padding: 1.4rem 1.5rem;
+  border: 1px solid var(--border); background: var(--bg);
+  text-decoration: none; transition: border-color 0.3s, transform 0.3s;
+}
+.pg-modal-option:hover { border-color: var(--gold); transform: translateX(3px); }
+.pg-modal-option-title {
+  font-family: var(--serif); font-size: 1.15rem; color: var(--text);
+  margin-bottom: 0.3rem;
+}
+.pg-modal-option-desc { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.6rem; }
+.pg-modal-option-meta {
+  font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ─── FOOTER ────────────────────────────────────────────── */
+.pg-footer {
+  text-align: center; padding: 2.5rem 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.72rem; color: var(--text-dim);
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .pg-toolbar-inner, .pg-container { padding-left: 2.5rem; padding-right: 2.5rem; }
+}
+@media (max-width: 768px) {
+  .pg-hero { padding: 5rem 1.5rem 3rem; min-height: 50vh; }
+  .pg-toolbar-inner, .pg-container { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .pg-modal { padding: 2rem 1.5rem; }
+}

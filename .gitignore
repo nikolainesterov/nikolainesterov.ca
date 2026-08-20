@@ -1,0 +1,27 @@
+# ═══════════════════════════════════════════════════════════
+# NIKOLAI NESTEROV — .gitignore
+# ═══════════════════════════════════════════════════════════
+
+# ── Secrets — never commit these ──
+scripts/.env
+.env
+.env.local
+
+# ── Node.js ──
+node_modules/
+scripts/node_modules/
+npm-debug.log*
+
+# ── OS-generated files ──
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor/IDE files ──
+.vscode/
+.idea/
+*.swp
+
+# ── Local test/scratch files ──
+*.tmp
+*.log
