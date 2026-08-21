@@ -11,7 +11,11 @@
 
      var wrap = document.querySelector('.lb-img-wrap');
      var zoomCtrl = window.NNLightboxZoom
-       ? window.NNLightboxZoom.attach(lbImg, wrap)
+       ? window.NNLightboxZoom.attach(lbImg, wrap, {
+           onZoomChange: function (isZoomed) {
+             lb.classList.toggle('zoomed-in', isZoomed);
+           }
+         })
        : { isZoomed: function(){return false;}, reset: function(){}, onImageChange: function(){} };
 
      // whenever you change lbImg.src to a new photo:
@@ -48,7 +52,10 @@
     return Math.min(max, Math.max(min, val));
   }
 
-  function attach(imgEl, wrapEl) {
+  function attach(imgEl, wrapEl, options) {
+
+    options = options || {};
+    var onZoomChange = typeof options.onZoomChange === 'function' ? options.onZoomChange : null;
 
     /* No touch support (desktop) — do nothing, return inert controller */
     var isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
@@ -82,6 +89,7 @@
       imgEl.style.transition = withTransition ? 'transform 0.25s ease' : 'none';
       imgEl.style.transformOrigin = 'center center';
       imgEl.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')';
+      if (onZoomChange) onZoomChange(scale > 1.01);
     }
 
     function measureBase() {

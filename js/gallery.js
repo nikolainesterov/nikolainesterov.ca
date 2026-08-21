@@ -440,7 +440,11 @@ var GALLERY_DATA = {
   var lbWrap    = lb ? lb.querySelector('.lb-img-wrap') : null;
 
   var zoomCtrl = (window.NNLightboxZoom && lbWrap)
-    ? window.NNLightboxZoom.attach(lbImg, lbWrap)
+    ? window.NNLightboxZoom.attach(lbImg, lbWrap, {
+        onZoomChange: function (isZoomed) {
+          lb.classList.toggle('zoomed-in', isZoomed);
+        }
+      })
     : { isZoomed: function () { return false; }, reset: function () {}, onImageChange: function () {} };
  
   document.addEventListener('click', function (e) {

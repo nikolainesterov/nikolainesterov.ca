@@ -249,6 +249,16 @@
   width: 18px; stroke: var(--text-muted); fill: none; stroke-width: 1.5;
 }
 
+.lb-caption, .lb-prev, .lb-next {
+  transition: opacity 0.25s ease;
+}
+.lightbox.zoomed-in .lb-caption,
+.lightbox.zoomed-in .lb-prev,
+.lightbox.zoomed-in .lb-next {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* ── Disable right-click save and drag-to-desktop on gallery images ── */
 .masonry-item img,
 #lbImg {
