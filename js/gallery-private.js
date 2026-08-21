@@ -415,6 +415,11 @@
   var lbFavBtn    = document.getElementById('pgLbFav');
   var lbDlBtn     = document.getElementById('pgLbDownload');
   var lbDlMenu    = document.getElementById('pgLbDownloadMenu');
+  var lbWrap      = lb ? lb.querySelector('.lb-img-wrap') : null;
+
+  var zoomCtrl = (window.NNLightboxZoom && lbWrap)
+    ? window.NNLightboxZoom.attach(lbImg, lbWrap)
+    : { isZoomed: function () { return false; }, reset: function () {}, onImageChange: function () {} };
 
   function activeList() {
     return showFavsOnly ? photos.filter(isFavorite) : photos;
@@ -432,12 +437,15 @@
     lb.classList.remove('open');
     document.body.style.overflow = '';
     lbDlMenu.classList.remove('open');
+    zoomCtrl.reset();
     setTimeout(function () { if (!lb.classList.contains('open')) lbImg.src = ''; }, 350);
   }
   function updateLightbox() {
     var list = activeList();
     var photo = list[currentIndex];
     if (!photo) return;
+
+    zoomCtrl.reset();
 
     lbImg.src = '';
     lbImg.alt = photo.file;

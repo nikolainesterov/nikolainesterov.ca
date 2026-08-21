@@ -181,6 +181,7 @@
   max-width: 88vw; max-height: 84vh;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
+  touch-action: none;
 }
 .lb-img-wrap img {
   max-width: 88vw; max-height: 84vh;
@@ -255,12 +256,22 @@
   user-drag: none;
   -webkit-user-select: none;
   user-select: none;
-  pointer-events: none;   /* disables right-click on the img itself */
+}
+
+.masonry-item img {
+  pointer-events: none;
 }
 
 /* Keep the parent item clickable for the lightbox */
 .masonry-item {
   pointer-events: all;
+}
+
+/* #lbImg needs pointer-events so touch gestures (pinch/pan) can reach it.
+   Right-click is still blocked via the existing contextmenu listener. */
+#lbImg {
+  pointer-events: auto;
+  touch-action: none;
 }
 
 /* ─── RESPONSIVE ────────────────────────────────────────── */

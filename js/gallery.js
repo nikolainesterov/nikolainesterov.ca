@@ -437,6 +437,11 @@ var GALLERY_DATA = {
   var lbTitle   = document.getElementById('lbTitle');
   var lbMeta    = document.getElementById('lbMeta');
   var lbCounter = document.getElementById('lbCounter');
+  var lbWrap    = lb ? lb.querySelector('.lb-img-wrap') : null;
+
+  var zoomCtrl = (window.NNLightboxZoom && lbWrap)
+    ? window.NNLightboxZoom.attach(lbImg, lbWrap)
+    : { isZoomed: function () { return false; }, reset: function () {}, onImageChange: function () {} };
  
   document.addEventListener('click', function (e) {
     var item = e.target.closest('.jg-item');
@@ -461,6 +466,7 @@ var GALLERY_DATA = {
     if (!lb) return;
     lb.classList.remove('open');
     document.body.style.overflow = '';
+    zoomCtrl.reset();
     setTimeout(function () {
       if (!lb.classList.contains('open') && lbImg) lbImg.src = '';
     }, 350);
@@ -469,6 +475,9 @@ var GALLERY_DATA = {
   function updateLightbox() {
     var photo = currentPhotos[currentIndex];
     if (!photo || !lbImg) return;
+
+    zoomCtrl.reset();
+
     lbImg.src = '';
     lbImg.alt = photo.title || '';
     lbImg.src = photo.src;
