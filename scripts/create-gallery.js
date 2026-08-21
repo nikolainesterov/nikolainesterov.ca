@@ -38,12 +38,13 @@
 
 require('dotenv').config();
 
-const fs        = require('fs');
-const path      = require('path');
-const crypto    = require('crypto');
-const os        = require('os');
-const archiver  = require('archiver');
-const prompts   = require('prompts');
+const fs         = require('fs');
+const path       = require('path');
+const crypto     = require('crypto');
+const os         = require('os');
+const archiver   = require('archiver');
+const prompts    = require('prompts');
+const sizeOf     = require('image-size').default || require('image-size');
 const {
   S3Client,
   PutObjectCommand
@@ -122,6 +123,16 @@ async function uploadBuffer(buffer, r2Key, contentType) {
     ContentType: contentType
   }));
   return buffer.length;
+}
+
+function getImageDimensions(localPath) {
+  try {
+    const dims = sizeOf(localPath);
+    return { w: dims.width, h: dims.height };
+  } catch (err) {
+    console.warn(`   ⚠️  Could not read dimensions for ${path.basename(localPath)} — will fall back to browser detection.`);
+    return { w: null, h: null };
+  }
 }
 
 function buildZip(folderPath) {
@@ -209,10 +220,13 @@ async function main() {
   console.log('⬆️   Uploading hero image...');
   await uploadFile(heroPath, `${prefix}/${answers.heroFile}`);
 
-  /* ── Upload social images ── */
-  console.log(`⬆️   Uploading ${socialFiles.length} social images...`);
+  /* ── Upload social images + read dimensions locally ── */
+  console.log(`⬆️   Uploading ${socialFiles.length} social images (reading dimensions)...`);
+  const photoDimensions = {};
   for (const file of socialFiles) {
-    await uploadFile(path.join(socialDir, file), `${prefix}/social/${file}`);
+    const localPath = path.join(socialDir, file);
+    photoDimensions[file] = getImageDimensions(localPath);
+    await uploadFile(localPath, `${prefix}/social/${file}`);
     process.stdout.write('.');
   }
   console.log(' done');
@@ -243,7 +257,12 @@ async function main() {
     date: answers.date,
     expires: answers.expires || null,
     hero: answers.heroFile,
-    photos: socialFiles.map((file) => ({ file })),
+    photos: socialFiles.map((file) => {
+      const dims = photoDimensions[file] || {};
+      const entry = { file };
+      if (dims.w && dims.h) { entry.w = dims.w; entry.h = dims.h; }
+      return entry;
+    }),
     counts: {
       social: socialFiles.length,
       original: originalFiles.length

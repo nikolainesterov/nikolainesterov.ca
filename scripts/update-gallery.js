@@ -1,31 +1,31 @@
 #!/usr/bin/env node
 /* ═══════════════════════════════════════════════════════════
    UPDATE-GALLERY.JS
-   Adds/updates photos in an EXISTING gallery — keeps the same
-   link (same slug) the client already has.
+   Updates an EXISTING gallery — keeps the same link (slug).
+
+   Two modes (you'll be asked which one to use):
+
+   ── ADD NEW ONLY (fast) ──
+   Compares your local social/ + original/ folders against what's
+   already in gallery.json. Any filename already listed is SKIPPED
+   (no re-upload, dimensions carried over as-is). Only new files
+   are uploaded and measured. Both ZIPs are still rebuilt from your
+   full local folder either way (fast, local-only work).
+   Assumption: same filename = unchanged content. If you've
+   re-edited an existing photo under the same filename, its
+   changes will NOT be picked up in this mode — use Full Refresh
+   instead.
+
+   ── FULL REFRESH ──
+   Re-uploads everything and fully mirrors your local folder —
+   including removing photos from the gallery that you've deleted
+   locally. Use this whenever you've re-edited existing photos.
+
+   The hero image is always re-uploaded in both modes (small file,
+   no meaningful cost).
 
    USAGE:
      node update-gallery.js
-
-   HOW IT WORKS:
-   You give it the existing gallery's slug, and a local folder
-   containing ALL the photos that should be in the gallery going
-   forward (both the old ones you want to keep AND the new ones
-   you're adding — same shape as when you first created it):
-
-     my-shoot/
-       hero.jpg
-       social/      ← every photo that should be in the gallery
-       original/    ← every photo that should be in the gallery
-
-   The script re-uploads everything, rebuilds both ZIPs from
-   scratch, and overwrites gallery.json — so the link stays
-   identical but the content is fully refreshed.
-
-   TIP: keep your original local shoot folder around after
-   creating a gallery (don't delete it) — that way "adding more
-   photos" later is just: drop new files into social/ and
-   original/, then run this script.
 ═══════════════════════════════════════════════════════════ */
 
 require('dotenv').config();
@@ -34,6 +34,7 @@ const fs        = require('fs');
 const path      = require('path');
 const archiver  = require('archiver');
 const prompts   = require('prompts');
+const sizeOf    = require('image-size').default || require('image-size');
 const {
   S3Client,
   PutObjectCommand,
@@ -59,7 +60,7 @@ const s3 = new S3Client({
 const BUCKET = process.env.R2_BUCKET_NAME;
 
 /* ════════════════════════════════════════════════════════
-   HELPERS  (same as create-gallery.js)
+   HELPERS
 ════════════════════════════════════════════════════════ */
 
 function formatBytes(bytes) {
@@ -79,6 +80,16 @@ function mimeFor(file) {
     '.gif': 'image/gif', '.zip': 'application/zip',
     '.json': 'application/json'
   }[ext] || 'application/octet-stream';
+}
+
+function getImageDimensions(localPath) {
+  try {
+    const dims = sizeOf(localPath);
+    return { w: dims.width, h: dims.height };
+  } catch (err) {
+    console.warn(`   ⚠️  Could not read dimensions for ${path.basename(localPath)} — will fall back to browser detection.`);
+    return { w: null, h: null };
+  }
 }
 
 async function uploadFile(localPath, r2Key) {
@@ -147,11 +158,31 @@ async function main() {
 
   console.log(`✅  Found: "${existing.title}" (${existing.date})\n`);
 
+  const { mode } = await prompts({
+    type: 'select',
+    name: 'mode',
+    message: 'How would you like to update this gallery?',
+    choices: [
+      {
+        title: 'Add new only  (fast — skips unchanged files, just adds new ones)',
+        value: 'merge'
+      },
+      {
+        title: 'Full refresh  (re-uploads everything, mirrors local folder exactly — use if you re-edited existing photos)',
+        value: 'full'
+      }
+    ]
+  });
+
+  if (!mode) { console.log('\nCancelled.\n'); return; }
+
   const answers = await prompts([
     {
       type: 'text',
       name: 'sourceFolder',
-      message: 'Path to the LOCAL folder containing ALL photos (old + new — this fully replaces the gallery content):',
+      message: mode === 'merge'
+        ? 'Path to the LOCAL folder (should contain the full set — old + new photos):'
+        : 'Path to the LOCAL folder containing ALL photos (this fully replaces the gallery content):',
       validate: (val) => fs.existsSync(val) ? true : 'That folder does not exist.'
     }
   ]);
@@ -175,31 +206,82 @@ async function main() {
 
   const prefix = `galleries/${slug}`;
 
-  console.log(`\n📊  Local folder has ${socialFiles.length} social / ${originalFiles.length} original photos.`);
-  console.log(`    Previously: ${existing.counts?.social ?? '?'} social / ${existing.counts?.original ?? '?'} original.\n`);
+  /* Build a lookup of existing photos' dimensions, keyed by filename */
+  const existingDims = {};
+  (existing.photos || []).forEach((p) => {
+    const file = typeof p === 'string' ? p : p.file;
+    if (typeof p === 'object' && p.w && p.h) {
+      existingDims[file] = { w: p.w, h: p.h };
+    }
+  });
+  const existingFilenames = new Set(Object.keys(existingDims).length
+    ? Object.keys(existingDims)
+    : (existing.photos || []).map((p) => (typeof p === 'string' ? p : p.file)));
 
-  /* ── Re-upload hero (in case it changed) ── */
+  /* ── Always re-upload hero ── */
   console.log('⬆️   Re-uploading hero image...');
   await uploadFile(heroPath, `${prefix}/${existing.hero}`);
 
-  /* ── Upload all social images (overwrites existing, adds new) ── */
-  console.log(`⬆️   Uploading ${socialFiles.length} social images...`);
-  for (const file of socialFiles) {
-    await uploadFile(path.join(socialDir, file), `${prefix}/social/${file}`);
-    process.stdout.write('.');
-  }
-  console.log(' done');
+  const photoDimensions = {};
 
-  /* ── Upload all original images ── */
-  console.log(`⬆️   Uploading ${originalFiles.length} original images...`);
-  for (const file of originalFiles) {
-    await uploadFile(path.join(originalDir, file), `${prefix}/original/${file}`);
-    process.stdout.write('.');
-  }
-  console.log(' done');
+  if (mode === 'merge') {
+    /* ═══ ADD NEW ONLY ═══ */
+    const newSocialFiles = socialFiles.filter((f) => !existingFilenames.has(f));
+    const skippedCount = socialFiles.length - newSocialFiles.length;
 
-  /* ── Rebuild both ZIPs from scratch ── */
-  console.log('📦  Rebuilding social ZIP...');
+    console.log(`\n📊  ${newSocialFiles.length} new photo(s) to upload, ${skippedCount} unchanged (skipped).\n`);
+
+    /* Carry over dimensions for unchanged files */
+    socialFiles.forEach((f) => {
+      if (existingDims[f]) photoDimensions[f] = existingDims[f];
+    });
+
+    if (newSocialFiles.length) {
+      console.log(`⬆️   Uploading ${newSocialFiles.length} new social images (reading dimensions)...`);
+      for (const file of newSocialFiles) {
+        const localPath = path.join(socialDir, file);
+        photoDimensions[file] = getImageDimensions(localPath);
+        await uploadFile(localPath, `${prefix}/social/${file}`);
+        process.stdout.write('.');
+      }
+      console.log(' done');
+
+      console.log(`⬆️   Uploading ${newSocialFiles.length} new original images...`);
+      for (const file of newSocialFiles) {
+        const originalPath = path.join(originalDir, file);
+        if (fs.existsSync(originalPath)) {
+          await uploadFile(originalPath, `${prefix}/original/${file}`);
+          process.stdout.write('.');
+        } else {
+          console.warn(`\n   ⚠️  No matching original found for "${file}" — skipped in /original.`);
+        }
+      }
+      console.log(' done');
+    } else {
+      console.log('   Nothing new to upload.');
+    }
+
+  } else {
+    /* ═══ FULL REFRESH ═══ */
+    console.log(`\n⬆️   Uploading ${socialFiles.length} social images (reading dimensions)...`);
+    for (const file of socialFiles) {
+      const localPath = path.join(socialDir, file);
+      photoDimensions[file] = getImageDimensions(localPath);
+      await uploadFile(localPath, `${prefix}/social/${file}`);
+      process.stdout.write('.');
+    }
+    console.log(' done');
+
+    console.log(`⬆️   Uploading ${originalFiles.length} original images...`);
+    for (const file of originalFiles) {
+      await uploadFile(path.join(originalDir, file), `${prefix}/original/${file}`);
+      process.stdout.write('.');
+    }
+    console.log(' done');
+  }
+
+  /* ── Rebuild both ZIPs from the local folder (always — cheap, local work) ── */
+  console.log('\n📦  Rebuilding social ZIP...');
   const socialZipBuffer = await buildZip(socialDir);
   await uploadBuffer(socialZipBuffer, `${prefix}/downloads/social-all.zip`, 'application/zip');
   console.log(`    social-all.zip — ${formatBytes(socialZipBuffer.length)}`);
@@ -209,10 +291,15 @@ async function main() {
   await uploadBuffer(originalZipBuffer, `${prefix}/downloads/original-all.zip`, 'application/zip');
   console.log(`    original-all.zip — ${formatBytes(originalZipBuffer.length)}`);
 
-  /* ── Update gallery.json (keep title/date/expires/slug, refresh photos+counts+sizes) ── */
+  /* ── Update gallery.json ── */
   const updatedJson = {
     ...existing,
-    photos: socialFiles.map((file) => ({ file })),
+    photos: socialFiles.map((file) => {
+      const dims = photoDimensions[file] || {};
+      const entry = { file };
+      if (dims.w && dims.h) { entry.w = dims.w; entry.h = dims.h; }
+      return entry;
+    }),
     counts: {
       social: socialFiles.length,
       original: originalFiles.length
@@ -223,14 +310,14 @@ async function main() {
     }
   };
 
-  console.log('📝  Updating gallery.json...');
+  console.log('\n📝  Updating gallery.json...');
   await uploadBuffer(
     Buffer.from(JSON.stringify(updatedJson, null, 2)),
     `${prefix}/gallery.json`,
     'application/json'
   );
 
-  console.log('\n✅  Gallery updated successfully — link is unchanged:\n');
+  console.log(`\n✅  Gallery updated successfully (${mode === 'merge' ? 'add new only' : 'full refresh'}) — link is unchanged:\n`);
   console.log('   https://nikolainesterov.ca/gallery/?g=' + slug + '\n');
 }
 
